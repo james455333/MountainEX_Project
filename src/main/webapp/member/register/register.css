@@ -1,0 +1,41 @@
+@charset "BIG5";
+
+
+#content form{
+	position : relative;
+	left : 12.5%;
+	width : 75%;
+	height : 75%;
+	margin-top : 2.5%;
+	padding : 2.5%;
+	
+}
+
+fieldset{
+	height : 100%;
+	border : 7.5px inset	#EA7500;
+	background-color : white;
+	padding : 2.5%;
+}
+legend{
+	width : auto;
+	padding-left : 5%;
+	padding-right : 5%;
+	margin : auto;
+}
+fieldset div{
+	margin-top : 2.5%;
+	
+}
+.register_output{
+	width: 100%;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+.register_output div{
+	width: 25%;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
