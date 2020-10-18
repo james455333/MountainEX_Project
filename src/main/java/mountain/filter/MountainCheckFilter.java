@@ -74,11 +74,10 @@ public class MountainCheckFilter implements Filter {
 			try {
 				mBeanList= mountainDAO.routeSummary();
 				
-				
-				
 			} catch (SQLException e) {
-				session.setAttribute("errorMsg", "出現錯誤 : \n"+e.getErrorCode()+":"+e.getMessage()+"\n請聯絡管理員");
-				resp.sendRedirect(req.getContextPath()+"/index.jsp");
+				String errorMsg = e.getMessage()+" : "+e.getSQLState();
+				request.setAttribute("errorMsg", errorMsg );
+				chain.doFilter(request, response);
 				return;
 			}
 			session.setAttribute("mountainBean", mBeanList);
