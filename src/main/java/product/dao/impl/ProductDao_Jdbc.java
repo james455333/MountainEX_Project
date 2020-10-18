@@ -1,32 +1,16 @@
 package product.dao.impl;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import javax.swing.text.DefaultEditorKit.InsertBreakAction;
-
-import org.apache.commons.dbcp2.PStmtKey;
-import org.omg.CORBA.StringHolder;
 
 import dB.DataS;
-import mountain.mountainList.model.MountainBean;
-import oracle.net.aso.b;
-import product.dao.ProductDao;
 import product.model.ClassBean;
 import product.model.ProductBean;
 
