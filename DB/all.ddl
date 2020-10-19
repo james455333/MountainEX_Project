@@ -1,5 +1,5 @@
 -- 產生者Oracle SQL Developer Data Modeler 20.2.0.167.1538
--- 於:2020-10-19 20:08:48 TST
+-- 於:2020-10-19 21:55:18 TST
 -- 位置:Oracle Database 12cR2
 -- 類型:Oracle Database 12cR2
 
@@ -48,7 +48,7 @@ CREATE SEQUENCE seq_side_resp START WITH 40000000 MAXVALUE 49999999 MINVALUE 400
 CREATE TABLE activity_basic (
     seqno            NUMBER(5) NOT NULL,
     member_basic_id  NUMBER(7) NOT NULL,
-    route_basic_id   NUMBER NOT NULL,
+    route_basic_id2  NUMBER(4) NOT NULL,
     title            NVARCHAR2(250) NOT NULL,
     price            NUMBER(10) NOT NULL,
     totalday         NVARCHAR2(150) NOT NULL,
@@ -348,6 +348,12 @@ ALTER TABLE second_class ADD CONSTRAINT second_class_pk PRIMARY KEY ( id );
 ALTER TABLE activity_basic
     ADD CONSTRAINT activity_basic_member_basic_fk FOREIGN KEY ( member_basic_id )
         REFERENCES member_basic ( id )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
+ALTER TABLE activity_basic
+    ADD CONSTRAINT activity_basic_route_basic_fk FOREIGN KEY ( route_basic_id2 )
+        REFERENCES route_basic ( id )
             ON DELETE CASCADE
     NOT DEFERRABLE;
 
@@ -671,7 +677,7 @@ END;
 -- 
 -- CREATE TABLE                            24
 -- CREATE INDEX                             5
--- ALTER TABLE                             49
+-- ALTER TABLE                             50
 -- CREATE VIEW                              1
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
