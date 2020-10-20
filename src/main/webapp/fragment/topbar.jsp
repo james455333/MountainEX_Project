@@ -68,7 +68,7 @@
 		<div  id="mountain" class="text-info top">
 			<c:choose>
 				<c:when test="${ functionCheck != 'mountain' }"> 
-					<a href='<c:url value="/mountain/mountainIndex.jsp"/>'>百戰百岳</a>
+					<a href='<c:url value="/mountain/RouteSummaryServlet"/>'>百戰百岳</a>
 				</c:when>
 				<c:otherwise>
 					百戰百岳

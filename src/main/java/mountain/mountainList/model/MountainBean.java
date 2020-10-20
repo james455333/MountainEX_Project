@@ -1,5 +1,7 @@
 package mountain.mountainList.model;
 
+
+
 public class MountainBean {
 	
 	String name ;
