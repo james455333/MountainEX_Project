@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tri_memberid" directorySegmentName="seg_0" id="25218FC9-C2AC-CC1C-AC37-56664316C7F2">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:06 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    :new.id := seq_memberid.nextval;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>5ECEEC7A-31F7-FD3A-3208-0E9D98572B98</table>
+</TriggerOraclev10g>
