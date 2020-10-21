@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tri_route" directorySegmentName="seg_0" id="BEC70ADB-E444-6C63-9AF2-17981B964129">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:06 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    :new.id := seq_route.nextval;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>C6B6F416-66BC-590E-AFCD-802EB2A13365</table>
+</TriggerOraclev10g>
