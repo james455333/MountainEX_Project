@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<StorageDesignOraclev12cR2 class="oracle.dbtools.crest.model.design.storage.oracle.v12cr2.StorageDesignOraclev12cR2" name="Oracle Database 12cR2" id="AD26C510-F8BA-A3F8-F85B-4F5BFAEC5AA5" siteID="79C73AAF-E1A7-E669-7DF0-025EE81A2AFC" siteName="Oracle Database 12cR2" siteType="14">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-20 09:42:06 UTC</createdTime>
-<ownerDesignName>未命名_1</ownerDesignName>
-</StorageDesignOraclev12cR2>
