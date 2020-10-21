@@ -33,6 +33,7 @@
 
 <body>
 
+	
 	<c:set var='functionCheck' value="mountain" scope="session" />
 	
 	
@@ -201,7 +202,7 @@
 
 	</div>
 	
-
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 		crossorigin="anonymous"></script>
@@ -214,7 +215,12 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<script src="mountain.js"></script>
-	
+	<c:if test="${ !empty errorMsg }">
+		<script type="text/javascript">
+			alert("出現錯誤\n${errorMsg}\n請複製錯誤訊息並連絡管理員");
+			
+		</script>
+	</c:if>
 		<script>
 		
 		var npSet = sessionStorage.getItem("npSet")

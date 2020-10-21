@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3C3AEEF-1600-91E8-651A-9C14201A699A" name="member_status">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>F2B56324-4A11-0065-DC23-2B6F1A5E111F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="EA901F52-CD81-41A7-497E-24037778AF2D">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>04CD0CD0-1D9F-5109-C26B-73FEB4E24CA3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<domain>9C9790BF-EC18-C1D2-B893-73EC623C89D0</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>nnc_memberinfo_status_no</notNullConstraintName>
+</Column>
+<Column name="name" id="0BFFEE5D-CBA8-F799-96D1-1C04810BBED3">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>570C87F9-DE75-8A19-72C4-7CEB102F8C59</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4324B6DE-3A5F-0670-A7D0-2ED1E3C1D349</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>nnc_memberinfo_status_name</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9DFF735A-8015-05FB-A593-6CE3B28AE403" name="memberinfo_pk">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>D2D9C7C7-C192-BAC3-8CD6-5180B5381A12</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA901F52-CD81-41A7-497E-24037778AF2D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEC20804-DC97-F790-3B8D-F3ABF9B22F9E" name="memberinfo_status_no_idx">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>8D2B14F2-5769-BE95-922F-9E0E16B6D5AB</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA901F52-CD81-41A7-497E-24037778AF2D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="40CE6371-1513-508E-9129-A19FF06A4CE4" name="memberinfo_status_name_idx">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>838FBC2E-70D6-7899-07FC-0038C0CA3C21</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0BFFEE5D-CBA8-F799-96D1-1C04810BBED3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

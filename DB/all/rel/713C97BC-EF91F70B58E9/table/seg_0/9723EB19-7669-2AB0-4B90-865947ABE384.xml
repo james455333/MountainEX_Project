@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9723EB19-7669-2AB0-4B90-865947ABE384" name="orderitems">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>C5C59DF5-CCA1-DB79-BCA5-330219351DD8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="seqno" id="66B446A2-D473-A0F3-FFAD-AD94287B7C34">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>BDDC36BA-7094-35B5-4426-17C2DAA610FB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>986EEAE0-38DE-C8A9-B2B6-2C7F95775129</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="orders_orderno" id="D328E07B-EF58-3C25-3FDF-E9CC55E13CF3">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>F79101FA-84FE-8422-4F4B-5737172E0A77</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>06F76DA7-9361-A6B4-9431-591B905E9DB1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F48FF601-A1C7-C3A6-94FE-7E0D2BA8A3E8" referredColumn="1A5CBBFE-F777-F6CD-6603-A35795EEA40B"/>
+</associations>
+</Column>
+<Column name="item_basic_seqno" id="FF6678AD-9911-220B-1A3A-1FDE4FAE4731">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>B6E0EE8B-0D38-2501-C7DC-9E7969235392</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>06F76DA7-9361-A6B4-9431-591B905E9DB1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2AD3D82D-0558-E6F6-9F0B-85D76CB8910D" referredColumn="F87A74B3-EC6C-BF42-0504-6B73D4E290CA"/>
+</associations>
+</Column>
+<Column name="amount" id="E686B9E2-5213-824F-C846-0DB16B71829B">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>F018951F-1673-ABD9-6099-30995C7B0EF4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C73A991-1390-261B-99C9-EBFA84D7A3C6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="unitprice" id="8BCCAA4B-668C-CFC9-FD09-675B13F770B1">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>3C661CFA-050D-3DFC-26C9-2FA7FFA10781</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C0B6B2E5-225E-4854-719E-17D1B8854FD4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="discount" id="A926046A-D559-0ADB-6499-F47EAE619454">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>F987E94F-D778-BED1-9C66-6FB38A031869</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>A1B93FD7-1245-5EC1-A1E5-4AA3F2E0999E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="08BA5E64-1E7D-9C26-2BD4-0C2FBE1DDC7B" name="orderitems_pk">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>62555AA5-54D6-0365-C4B1-ED44170DCD6F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66B446A2-D473-A0F3-FFAD-AD94287B7C34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C6DB3445-52C0-CAD4-1B2C-E6A31531BEA4" name="orderitems_pk">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>752BE49F-4FD9-5D9A-9571-C9D4ED4F4498</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66B446A2-D473-A0F3-FFAD-AD94287B7C34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D7ABE54C-E449-0D79-DE42-07EB2F6CDEC1" name="orderitems_item_basic_fk">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF6678AD-9911-220B-1A3A-1FDE4FAE4731"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A8C22E0-B75D-ACCB-E846-A348E1E90FB5" name="orderitems_orders_fk">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D328E07B-EF58-3C25-3FDF-E9CC55E13CF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

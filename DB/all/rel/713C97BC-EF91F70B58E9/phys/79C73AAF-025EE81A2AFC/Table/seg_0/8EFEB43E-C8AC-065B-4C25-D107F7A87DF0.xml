@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="activity_response" directorySegmentName="seg_0" id="8EFEB43E-C8AC-065B-4C25-D107F7A87DF0">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="post_date" id="10ED18A9-BB7C-7D40-1179-BFF713B79C34">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="member_basic_id" id="205C5A03-0638-887D-EB87-5BBEF5010D54">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="privatetag" id="6C067CA8-6F80-327F-E122-823E6610DA6F">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="activity_basic_seqno" id="8FC0C8B5-141C-F928-718A-14C1926FDC57">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="message" id="9FCA1858-C061-0453-9AF9-023A4BDD4B35">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="seqno" id="DADD51F3-2DF7-A65F-7EA2-75C4DBCA1F94">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="activity_response_member_basic_fk" id="EE71C2E4-DDAA-8239-6A33-8321B3716D6D">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="activity_response_activity_basic_fk" id="FAB2796E-83E9-A577-C4AC-9C00E96B125C">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="activity_response_pk" id="A72FD3BD-0906-49D6-7C2E-5E3135ADE75E">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

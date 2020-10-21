@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D116C999-55F3-F432-FC85-1B4B395EF309" name="counties">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>1FFB3D3D-A62C-D496-B21E-DC11FF467984</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="28CFFE9F-E78A-C844-B3CE-8C922BF115C6">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>C66B6A00-3000-B8D9-2575-B841FF0CD2E8</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FF00A895-9497-B3BE-4FF7-F7916FE45404</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="area_id" id="F6CFFACB-4FD3-8A12-EA63-454FC2EF2006">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>03BC1B5B-29D6-BDB1-1528-F12AFFB6F917</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>1075092A-5B10-F9E7-5C0D-1C5D564A64DD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F8852BE5-5815-27B9-BFFF-37ADF7865DC1" referredColumn="DE33ADFF-9B20-12E7-EB38-ECCB7E3EA1FB"/>
+</associations>
+</Column>
+<Column name="name" id="39E91942-9BA2-DFAF-155F-0A4AF41529B2">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>EDB565CD-954A-182D-95DE-2200F089F6F3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4324B6DE-3A5F-0670-A7D0-2ED1E3C1D349</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="96FA383C-4C92-5001-72B0-69B56ECABAE0" name="counties_pk">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<importedID>D151F8E2-5F41-B718-ECB3-DB17BA19D278</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28CFFE9F-E78A-C844-B3CE-8C922BF115C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="38D4A489-8A30-59C3-EBA0-3F1193CDBF98" name="counties_area_fk">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-20 09:42:12 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6CFFACB-4FD3-8A12-EA63-454FC2EF2006"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
