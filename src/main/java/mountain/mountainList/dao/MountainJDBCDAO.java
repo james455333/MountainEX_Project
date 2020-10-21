@@ -16,8 +16,9 @@ import javax.sql.DataSource;
 
 import dB.DataS;
 import mountain.mountainList.model.MountainBean;
+import mountain.mountainList.model.RouteSummary;
 
-public class MountainDAO implements Serializable {
+public class MountainJDBCDAO implements Serializable,RotueSummaryDAOImp {
 	
 	/**
 	 * 
@@ -27,6 +28,18 @@ public class MountainDAO implements Serializable {
 	
 	public List<MountainBean> routeSummary() throws SQLException {
 		
+		
+		
+	}
+
+	@Override
+	public RouteSummary select(String routeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RouteSummary> selectAll() {
 		dataS.setUsername("demo");
 		dataS.setUserPassword("demo");
 		DataSource datasoure = dataS.getDatasoure();
@@ -37,7 +50,7 @@ public class MountainDAO implements Serializable {
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from route_summary");
 			
-			List<MountainBean> mBList = new ArrayList<MountainBean>(); 
+			List<RouteSummary> mBList = new ArrayList<RouteSummary>(); 
 			
 			while (rs.next()) {
 				MountainBean mB = new MountainBean();
@@ -151,7 +164,6 @@ public class MountainDAO implements Serializable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} throw new SQLException("SQLException");
-		
 	}
 
 }
