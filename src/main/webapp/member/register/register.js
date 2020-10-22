@@ -28,5 +28,4 @@ function checkName(){
     }else{
         sp.innerHTML = "密碼長度最少6個字元";
     }
-
 }
