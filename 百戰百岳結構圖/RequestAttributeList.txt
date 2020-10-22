@@ -7,33 +7,40 @@ RegCancel			resultMsg
 Check
 Confirm				resultMsg
 edit				
+badCancel			resultMsg
+denyReg				resultMsg
+AcceptReg			resultMsg
 -------------------------------------------------------
 
 ServletName	: ActResponseServlet
 TagName :	actResp				
 GetMsgName			SentMsgName
 -------------------------------------------------------
-update				feedBack
-delete				feedBack
-hostDelete			feedBack
+update				resultMsg
+delete				resultMsg
+hostDelete			resultMsg
+new					resultMsg
 -------------------------------------------------------
 
 ServletName	: ActSideResponseServlet
 TagName :	actResp				
 GetMsgName			SentMsgName
 -------------------------------------------------------
-update				feedBack
-delete				feedBack
-answer				feedBack
-hostDelete			feedBack
+update				resultMsg
+delete				resultMsg
+answer				resultMsg
+hostDelete			resultMsg
 -------------------------------------------------------
 
 ServletName	: ActUpdateServlet
-TagName :	actResp				
+TagName :	actUpdate				
 GetMsgName			SentMsgName
 -------------------------------------------------------
 check				
 confrim				resultMsg
+backUpdate			
+cancel				resultMsg
+badCancel			resultMsg
 -------------------------------------------------------
 
 ServletName	: ActImgUpdateServlet
@@ -44,3 +51,4 @@ update				resultMsg
 delete				resultMsg
 insert				resultMsg
 -------------------------------------------------------
+
