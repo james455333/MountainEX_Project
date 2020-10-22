@@ -1,0 +1,46 @@
+
+ServletName	: ActRegisterServlet
+TagName	:	actReg			
+GetMsgName			SentMsgName
+-------------------------------------------------------
+RegCancel			resultMsg
+Check
+Confirm				resultMsg
+edit				
+-------------------------------------------------------
+
+ServletName	: ActResponseServlet
+TagName :	actResp				
+GetMsgName			SentMsgName
+-------------------------------------------------------
+update				feedBack
+delete				feedBack
+hostDelete			feedBack
+-------------------------------------------------------
+
+ServletName	: ActSideResponseServlet
+TagName :	actResp				
+GetMsgName			SentMsgName
+-------------------------------------------------------
+update				feedBack
+delete				feedBack
+answer				feedBack
+hostDelete			feedBack
+-------------------------------------------------------
+
+ServletName	: ActUpdateServlet
+TagName :	actResp				
+GetMsgName			SentMsgName
+-------------------------------------------------------
+check				
+confrim				resultMsg
+-------------------------------------------------------
+
+ServletName	: ActImgUpdateServlet
+TagName :	actImg			
+GetMsgName			SentMsgName
+-------------------------------------------------------
+update				resultMsg
+delete				resultMsg
+insert				resultMsg
+-------------------------------------------------------
