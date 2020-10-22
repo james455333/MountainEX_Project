@@ -1,0 +1,181 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="11E92B83-9DB9-A0A7-3F00-32F2F8A0AFA3" name="activity_info">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:13:05 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<ordsAlias>table_25</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="activity_basic_seqno" id="15875F51-1AF5-CA6D-24E3-8AB21B092D55">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:13:19 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D783EC51-F784-5C9A-999C-B0995F0C89A3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3DC73025-6979-AF54-7F82-A63BB75B8C88" referredColumn="829FA245-DB4B-3B89-7894-4B56FD63D274"/>
+</associations>
+</Column>
+<Column name="route_basic_id" id="FA2E0255-FC0B-0BD2-9DBC-9B56E4D863BC">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:25:40 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FF00A895-9497-B3BE-4FF7-F7916FE45404</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8978FF91-4610-D6FB-7258-EF8E9BE2B2DB" referredColumn="B4746B90-FA35-EC02-429D-D7C800F823C8"/>
+</associations>
+</Column>
+<Column name="title" id="6E40EF6F-4627-9F8A-2B59-13054E43DFE0">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="price" id="5F4AEBF0-2F4D-D88B-134E-67B5D0C7D2AB">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="totalday" id="B965C0DE-C940-E9B4-4E1E-0B2CDAE6468F">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="note" id="CF549229-8786-ED67-AF38-AAA9A3290686">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reg_now" id="8BC6DFDD-97B8-9D28-B6E2-E06F2D7E8913">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reg_top" id="A5D24241-7C7A-87AD-86E0-3A439852C2DB">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_date" id="4889B453-D094-7956-8F50-4262AA65C03C">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="end_date" id="E690983B-9EE3-9968-4E75-986306C1E60E">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reg_end_date" id="F598A53E-6483-E928-F923-5FAAC3A3011B">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="post_date" id="7DD5423A-784C-0F82-AB74-8780E9E800FA">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CBA71F40-DD0E-915F-3950-0B78F44593B9" name="activity_info_PK">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:22:22 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15875F51-1AF5-CA6D-24E3-8AB21B092D55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="40A4EED3-4A15-4512-DDF8-49D247BBF661" name="activity_info_activity_basic_FK">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:13:19 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15875F51-1AF5-CA6D-24E3-8AB21B092D55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="861895A2-8859-6A51-A118-45495617B6BE" name="activity_info_route_basic_FK">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 03:25:40 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA2E0255-FC0B-0BD2-9DBC-9B56E4D863BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
