@@ -1,6 +1,7 @@
 package product.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import product.service.ProductService;
-import product.service.ProductServiceImpl;
+import product.dao.impl.ProductDao_Jdbc;
+
 
 /**
  * Servlet implementation class DeleteServlet
@@ -31,8 +32,8 @@ public class DeleteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String name = request.getParameter("name");
 //		int bookId = Integer.parseInt(bId);
-		ProductService service = new ProductServiceImpl();
-		int n = service.deleteProduct(name);
+		ProductDao_Jdbc productDao_Jdbc = new ProductDao_Jdbc();
+		int n = productDao_Jdbc.deleteProduct(name);
 		if (n == 1) {
 			session.setAttribute("DeleteMsg", "刪除成功");
 		} else {
