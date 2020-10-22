@@ -1,21 +1,20 @@
 package member.register.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import member.login.model.MemberBean;
 import member.register.dao.memberDAO;
 import member.register.dao.memberJDBCDAO;
+import util.HibernateUtil;
 
 @WebServlet("/member/register/RegisterServletMP")
 public class RegisterServletMP extends HttpServlet {
@@ -29,20 +28,8 @@ public class RegisterServletMP extends HttpServlet {
 		response.setContentType(CONTENT_TYPE);
 		
 		//連線
-		DataSource ds = null;
-		InitialContext ctxt = null;
-		Connection connection = null;
-		
-		try {
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/xe");
-			connection = ds.getConnection();
-			
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
 		
 		
 		//接收submit
@@ -88,6 +75,8 @@ public class RegisterServletMP extends HttpServlet {
 			dao.insertData(mb);
 			System.out.println("9");
 			
+			session.save(mb);
+			session.getTransaction().commit();
 			response.sendRedirect("registersucc.jsp");
 	
 		}
