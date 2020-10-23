@@ -6,7 +6,7 @@
 	auth="Container"
 	username="hr" password="hr"
 	driverClassName="oracle.jdbc.OracleDriver"
-	url="jdbc:oracle:thin:@//172.16.39.60:1521/xepdb1"
+	url="jdbc:oracle:thin:@172.16.39.60:1521/xepdb1"
 	maxTotal="20"
 	maxIdle="10"
 	maxWaitMillis="-1"/>

@@ -15,12 +15,19 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>D32561B1-1CD2-6561-4D56-3D309C973A32</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>D783EC51-F784-5C9A-999C-B0995F0C89A3</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>26000</autoIncrementStartWith>
+<autoIncrementMinValue>26000</autoIncrementMinValue>
+<autoIncrementMaxValue>29999</autoIncrementMaxValue>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>10</autoIncrementCache>
 <autoIncrementSequenceName>seq_house</autoIncrementSequenceName>
 <autoIncrementTriggerName>tri_house</autoIncrementTriggerName>
 </Column>

@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import mountain.mountainList.dao.RouteSummaryDAO;
+import mountain.mountainList.dao.RotueSummaryDAOImp;
+import mountain.mountainList.dao.RouteSummaryHibernateDAO;
 import mountain.mountainList.model.RouteSummary;
 
 public class RouteSummaryService {
@@ -16,8 +17,8 @@ public class RouteSummaryService {
 	}
 	
 	public List<RouteSummary> selectAll(){
-		RouteSummaryDAO routeSummaryDAO = new RouteSummaryDAO(session);
-	
+		RotueSummaryDAOImp routeSummaryDAO = new RouteSummaryHibernateDAO(session);
+		
 		return routeSummaryDAO.selectAll();
 	}
 
