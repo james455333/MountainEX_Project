@@ -9,6 +9,7 @@
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
 <columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<<<<<<< HEAD
 <ColumnProxy name="title" id="34D862ED-84C5-D7AB-7DDD-C52C7BAA7273">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
@@ -19,11 +20,14 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
+=======
+>>>>>>> Merge_Branch
 <ColumnProxy name="seqno" id="829FA245-DB4B-3B89-7894-4B56FD63D274">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
+<<<<<<< HEAD
 <ColumnProxy name="start_date" id="841DB4AC-741E-C922-4548-14B1EA414EE8">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
@@ -54,11 +58,14 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
+=======
+>>>>>>> Merge_Branch
 <ColumnProxy name="member_basic_id" id="CF423A8A-C0DE-605E-3AAC-B90A4764DD09">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
+<<<<<<< HEAD
 <ColumnProxy name="reg_end_date" id="DE904821-3041-F6DF-376D-EC556BD4D91A">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
@@ -74,6 +81,8 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
+=======
+>>>>>>> Merge_Branch
 </columnProxies>
 <foreignKeys>
 <ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="activity_basic_member_basic_fk" id="36430C5E-141F-1C60-F77E-DA6B915F089A">
@@ -81,11 +90,14 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ForeignKey>
+<<<<<<< HEAD
 <ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="activity_basic_route_basic_fk" id="7CB8BEA7-73FD-6798-E13E-6CDC5F8DD2AF">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ForeignKey>
+=======
+>>>>>>> Merge_Branch
 </foreignKeys>
 <primaryKeys>
 <PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="activity_basic_pk" id="AEF1B15D-F2FA-CA68-8F9F-F88ADF3C9474">
@@ -95,4 +107,8 @@
 <indexSort>SORTED</indexSort>
 </PrimaryKey>
 </primaryKeys>
+<<<<<<< HEAD
 </TableProxyOraclev12c>
+=======
+</TableProxyOraclev12c>
+>>>>>>> Merge_Branch

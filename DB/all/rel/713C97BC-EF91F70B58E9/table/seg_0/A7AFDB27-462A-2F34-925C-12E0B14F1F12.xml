@@ -36,6 +36,7 @@
 <colAssociation fkAssociation="1299DAA6-E83E-FAC2-11AD-9F41B8981759" referredColumn="1F6AFFD3-5860-2C3E-D7B1-8A10B0C5DACD"/>
 </associations>
 </Column>
+<<<<<<< HEAD
 <Column name="route_basic_id2" id="8C694DAA-A72E-FC99-7DBE-E96DFD229DF3">
 <sourceDDLFile>all.ddl</sourceDDLFile>
 <createdBy>Student</createdBy>
@@ -174,6 +175,8 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+=======
+>>>>>>> Merge_Branch
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="AEF1B15D-F2FA-CA68-8F9F-F88ADF3C9474" name="activity_basic_pk">
@@ -199,6 +202,7 @@
 <colUsage columnID="CF423A8A-C0DE-605E-3AAC-B90A4764DD09"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<<<<<<< HEAD
 <ind_PK_UK id="7CB8BEA7-73FD-6798-E13E-6CDC5F8DD2AF" name="activity_basic_route_basic_fk">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
@@ -211,3 +215,7 @@
 </ind_PK_UK>
 </indexes>
 </Table>
+=======
+</indexes>
+</Table>
+>>>>>>> Merge_Branch

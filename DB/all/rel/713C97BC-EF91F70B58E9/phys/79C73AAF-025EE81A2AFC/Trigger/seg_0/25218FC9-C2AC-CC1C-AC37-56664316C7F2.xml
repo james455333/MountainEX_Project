@@ -7,7 +7,15 @@
 <actions>INSERT</actions>
 <body><![CDATA[BEGIN
     :new.id := seq_memberid.nextval;
+<<<<<<< HEAD
 END;]]></body>
 <triggerTime>BEFORE</triggerTime>
 <table>5ECEEC7A-31F7-FD3A-3208-0E9D98572B98</table>
 </TriggerOraclev10g>
+=======
+    :new.reg_date := sysdate;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>5ECEEC7A-31F7-FD3A-3208-0E9D98572B98</table>
+</TriggerOraclev10g>
+>>>>>>> Merge_Branch
