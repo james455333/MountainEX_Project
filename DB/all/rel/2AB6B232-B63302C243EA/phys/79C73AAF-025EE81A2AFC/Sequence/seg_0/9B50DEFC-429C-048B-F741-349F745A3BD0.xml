@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="seq_house" directorySegmentName="seg_0" id="9B50DEFC-429C-048B-F741-349F745A3BD0">
+<sourceDDLFile>all.ddl</sourceDDLFile>
+<createdBy>Student</createdBy>
+<createdTime>2020-10-23 13:40:59 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<cache>10</cache>
+<incrementBy>1</incrementBy>
+<maxValue>29999</maxValue>
+<minValue>26000</minValue>
+<order>YES</order>
+<startWith>26000</startWith>
+</SequenceOraclev10g>

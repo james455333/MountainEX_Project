@@ -1,5 +1,5 @@
 -- 產生者Oracle SQL Developer Data Modeler 20.2.0.167.1538
--- 於:2020-10-23 21:11:05 TST
+-- 於:2020-10-23 21:46:17 TST
 -- 位置:Oracle Database 12cR2
 -- 類型:Oracle Database 12cR2
 
@@ -11,7 +11,11 @@
 
 CREATE SEQUENCE seq_act_history START WITH 4000000 INCREMENT BY 1 MAXVALUE 4999999 MINVALUE 4000000 CACHE 10 ORDER;
 
+CREATE SEQUENCE seq_act_img START WITH 4000000 MAXVALUE 4999999 MINVALUE 4000000 CYCLE CACHE 10 ORDER;
+
 CREATE SEQUENCE seq_act_reg START WITH 4000000 INCREMENT BY 1 MAXVALUE 4999999 MINVALUE 4000000 CYCLE CACHE 10 ORDER;
+
+CREATE SEQUENCE seq_act_reg_info START WITH 40000000 MAXVALUE 49999999 MINVALUE 40000000 CYCLE CACHE 10 ORDER;
 
 CREATE SEQUENCE seq_act_resp START WITH 40000000 INCREMENT BY 1 MAXVALUE 49999999 MINVALUE 40000000 CACHE 10 ORDER;
 
@@ -558,11 +562,27 @@ BEGIN
 END; 
 /
 
+CREATE OR REPLACE TRIGGER tri_act_img 
+    BEFORE INSERT ON act_img 
+    FOR EACH ROW 
+BEGIN
+    :new.seqno := seq_act_img.nextval;
+END; 
+/
+
 CREATE OR REPLACE TRIGGER tri_act_reg 
     BEFORE INSERT ON activity_registry 
     FOR EACH ROW 
 BEGIN
     :new.seqno := seq_act_reg.nextval;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER tri_act_reg_info 
+    BEFORE INSERT ON activity_registry_info 
+    FOR EACH ROW 
+BEGIN
+    :new.seqno := seq_act_reg_info.nextval;
 END; 
 /
 
@@ -611,6 +631,14 @@ CREATE OR REPLACE TRIGGER tri_firstclass
     FOR EACH ROW 
 BEGIN
     :new.id := seq_firstclass.nextval;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER tri_house 
+    BEFORE INSERT ON house_basic 
+    FOR EACH ROW 
+BEGIN
+    :new.id := seq_house.nextval;
 END; 
 /
 
@@ -687,60 +715,6 @@ BEGIN
 END; 
 /
 
-CREATE SEQUENCE seq_act_img START WITH 4000000 MINVALUE 4000000 MAXVALUE 4999999 CYCLE CACHE 10 ORDER;
-
-CREATE OR REPLACE TRIGGER tri_act_img BEFORE
-    INSERT ON act_img
-    FOR EACH ROW
-BEGIN
-    :new.seqno := seq_act_img.nextval;
-END;
-/
-
-CREATE SEQUENCE seq_act_reg_info START WITH 40000000 MINVALUE 40000000 MAXVALUE 49999999 CYCLE CACHE 10 ORDER;
-
-CREATE OR REPLACE TRIGGER tri_act_reg_info BEFORE
-    INSERT ON activity_registry_info
-    FOR EACH ROW
-BEGIN
-    :new.seqno := seq_act_reg_info.nextval;
-END;
-/
-
-CREATE SEQUENCE seq_firclass START WITH 600 MINVALUE 600 MAXVALUE 699 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER first_class_id_trg BEFORE
-    INSERT ON first_class
-    FOR EACH ROW
-BEGIN
-    :new.id := seq_firclass.nextval;
-END;
-/
-
-CREATE OR REPLACE TRIGGER tri_house BEFORE
-    INSERT ON house_basic
-    FOR EACH ROW
-BEGIN
-    :new.id := seq_house.nextval;
-END;
-/
-
-CREATE OR REPLACE TRIGGER item_basic_seqno_trg BEFORE
-    INSERT ON item_basic
-    FOR EACH ROW
-BEGIN
-    :new.seqno := seq_shopitem.nextval;
-END;
-/
-
-CREATE OR REPLACE TRIGGER second_class_id_trg BEFORE
-    INSERT ON second_class
-    FOR EACH ROW
-BEGIN
-    :new.id := seq_second.nextval;
-END;
-/
-
 
 
 -- Oracle SQL Developer Data Modeler 摘要報表:
@@ -754,7 +728,7 @@ END;
 -- CREATE PACKAGE BODY                      0
 -- CREATE PROCEDURE                         0
 -- CREATE FUNCTION                          0
--- CREATE TRIGGER                          23
+-- CREATE TRIGGER                          20
 -- ALTER TRIGGER                            0
 -- CREATE COLLECTION TYPE                   0
 -- CREATE STRUCTURED TYPE                   0
@@ -767,7 +741,7 @@ END;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                         21
+-- CREATE SEQUENCE                         20
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0
