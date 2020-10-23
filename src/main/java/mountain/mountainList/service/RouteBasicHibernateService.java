@@ -19,6 +19,7 @@ public class RouteBasicHibernateService implements RouteBasicService {
 	private RouteBasicDAO rBHibDAO;
 	
 	public RouteBasicHibernateService(Session session) {
+		rBHibDAO = new RouteBasicHibernateDAO(session);
 	}
 	
 	@Override

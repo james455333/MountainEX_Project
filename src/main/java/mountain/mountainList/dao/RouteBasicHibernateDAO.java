@@ -6,16 +6,15 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import mountain.mountainList.dao.impl.RouteBasicDAO;
-import mountain.mountainList.model.NationalPark;
 import mountain.mountainList.model.RouteBasic;
 
-public abstract class RouteBasicHibernateDAO implements RouteBasicDAO {
+public class RouteBasicHibernateDAO implements RouteBasicDAO {
 	
 	private Session session;
 	
-//	public RouteBasicHibernateDAO(Session session) {
-//		this.session = session;
-//	}
+	public RouteBasicHibernateDAO(Session session) {
+		this.session = session;
+	}
 		
 	@Override
 	public RouteBasic insert(RouteBasic rBBean) {
@@ -48,7 +47,7 @@ public abstract class RouteBasicHibernateDAO implements RouteBasicDAO {
 	@Override
 	public boolean delete(int rBId) {
 		
-		NationalPark result = session.get(NationalPark.class, rBId);
+		RouteBasic result = session.get(RouteBasic.class, rBId);
 		
 		if (result != null) {
 			session.delete(result);
