@@ -1,4 +1,4 @@
-package product.dao.impl;
+package product.impl;
 
 import java.io.IOException;
 import java.io.InputStream;

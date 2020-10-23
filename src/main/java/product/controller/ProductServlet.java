@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import product.impl.ProductDao_Jdbc;
+import product.model.ClassBean;
+import product.model.ProductBean;
+
 
 @WebServlet("/shopping/ProductServlet")
 public class ProductServlet extends HttpServlet  {
