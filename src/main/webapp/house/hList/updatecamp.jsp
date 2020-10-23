@@ -28,6 +28,16 @@
 	margin-top:50px;
 	text-align:center;
 	}
+	td, th {
+	padding: 10px;
+	text-align: center;
+	border:1px solid black;
+	}
+	.move_center{
+	margin-left:45%;
+	border:1px solid black;
+	border-collapse:collapse;
+	}
 </style>
 </head>
 
@@ -47,6 +57,14 @@
 		
 		<div class="ya">
 		<h2>成功 !</h2><br>
+		<table class="move_center">
+				
+						<tr><td>縣市</td>	<td>${cit}</td></tr>
+						<tr><td>鄉鎮</td>	<td>${cmpt}</td></tr>
+						<tr><td>營地名稱</td>	<td>${cmpn}</td></tr>
+						<tr><td>網址</td>	<td>${cmpd}</td></tr>
+						
+		</table>				
 		<p><a href="camp.jsp" type="button">返回</a></p>        
     
     </div>

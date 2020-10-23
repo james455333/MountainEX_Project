@@ -68,20 +68,20 @@
 		<fieldset class="cow" >
 		<legend><caption><h2>新增山屋</h2></legend>
 		<div><label>國家公園</label>
-		<select name="mou" id="mou">
+		<select name="mou" id="mou" value="國家公園">
               <option>玉山國家公園</option>
               <option>雪霸國家公園</option>
               <option>太魯閣國家公園</option>
               
               </select>
 	</div><div><label>房名</label>
-		<input type="text" name="nam" size="10">
+		<input type="text" name="nam" size="10" value="風雨無阻11">
 	</div><div>	<label>床位</label>
-		<input type="text" name="sea" size="10">
+		<input type="text" name="sea" size="10" value="30">
 	</div><div>	<label>營地總數</label>
-		<input type="text" name="cam" size="10">
+		<input type="text" name="cam" size="10" value="0">
 	</div><div>	<label>海拔</label>
-		<input type="text" name="hig" placeholder="3402M" size="10">
+		<input type="text" name="hig" placeholder="3402M" size="10" value="333M">
 	</div>
 	
 	<div><input type="submit" value="新增"></div>

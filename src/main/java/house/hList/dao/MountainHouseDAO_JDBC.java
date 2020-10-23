@@ -19,8 +19,8 @@ public class MountainHouseDAO_JDBC {
 	DataS dataS = new DataS();
 	public List<HouseBeen> listMH(String add){
 		List<HouseBeen> hBList = new ArrayList<>();
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 		try (
 				Connection connection = datasoure.getConnection();
@@ -49,8 +49,8 @@ public class MountainHouseDAO_JDBC {
 			
 	public List<HouseBeen> selectMountain(String add){
 		List<HouseBeen> hBList =new ArrayList<>();
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 	
 		try (
@@ -82,8 +82,8 @@ public class MountainHouseDAO_JDBC {
 	
 	public List<HouseBeen> selectName(String add){
 		List<HouseBeen> hBList =new ArrayList<>();
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 		
 		try (
@@ -117,8 +117,8 @@ public class MountainHouseDAO_JDBC {
 	
 	public void insertHouse(String mou ,String nam,Integer sea , Integer cam,String hig){
 		
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 		
 		try (Connection connection = datasoure.getConnection();){
@@ -144,8 +144,8 @@ public class MountainHouseDAO_JDBC {
 	}
 	
 	public void deleteHouse(String del) {
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 		try (Connection connection = datasoure.getConnection();){
 			PreparedStatement stmt = connection.prepareStatement("delete from mountainhouse where name=?");
@@ -160,8 +160,8 @@ public class MountainHouseDAO_JDBC {
 }
 	
 	public void updateHouse(String mou1 ,String nam1,Integer sea1 , Integer cam1,String hig1) {
-		dataS.setUsername("hr");
-		dataS.setUserPassword("hr");
+		dataS.setUsername("HI");
+		dataS.setUserPassword("HI");
 		DataSource datasoure = dataS.getDatasoure();
 		System.out.println("333");
 		try (Connection connection = datasoure.getConnection();){

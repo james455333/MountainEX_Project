@@ -59,19 +59,18 @@
 		
 		<div class="moup">
                 <div class="col-x1">
-                    <a href="house.jsp" title="山中小屋查詢">
+                    <a href="<c:url value='HouseServlet?all=see'/>">
                         <img src="images/camp.PNG">
-                        <p>山中小屋查詢</p>
-                    </a>
-                </div>
+                     	<p>山中小屋查詢</p>
+                     </a>
+                 </div>
 
                 <div class="col-x1">
-                    <a href="camp.jsp" title="全台露營地查詢">
+                    <a href="<c:url value='CampServlet?camp_all=campsee'/>">
                         <img src="images/house.PNG">
                         <p>全台露營地查詢</p>
                     </a>
-                </div>
-                
+                </div>                
 
 
             </div>
