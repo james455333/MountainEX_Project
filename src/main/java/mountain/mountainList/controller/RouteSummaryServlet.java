@@ -3,6 +3,7 @@ package mountain.mountainList.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -37,6 +40,26 @@ public class RouteSummaryServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		List<MountainBean> mBeans = createMountainBean(request, response);
 		session.setAttribute("mountainBean", mBeans);
+		
+//		try(
+//				PrintWriter writer = new PrintWriter("C:\\專題\\MountainEX_Project/Mountain_MS950.csv","MS950");
+//				CSVPrinter print = CSVFormat.EXCEL.withHeader("name","description","advice","traffic","npName","img_url").print(writer);
+//				) {
+//			for (MountainBean mountainBean : mBeans) {
+//				String name = mountainBean.getName();
+//				String description = mountainBean.getDescription();
+//				String advice = mountainBean.getAdvice();
+//				String traffic = mountainBean.getTraffic();
+//				String npName = mountainBean.getNpName();
+//				String imgUrl = mountainBean.getImgUrl();
+//				
+//				print.printRecord(name,description,advice,traffic,npName,imgUrl);
+//				
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+		
 		response.sendRedirect(request.getContextPath() + "/mountain/mountainIndex.jsp");
 		return;
 	}

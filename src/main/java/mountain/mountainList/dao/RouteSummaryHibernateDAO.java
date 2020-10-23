@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 
 import mountain.mountainList.model.RouteSummary;
 
-public class RouteSummaryHibernateDAO implements RotueSummaryDAOImp {
+public class RouteSummaryHibernateDAO  {
 	
 	private Session session;
 	
@@ -15,12 +15,11 @@ public class RouteSummaryHibernateDAO implements RotueSummaryDAOImp {
 		this.session = session;
 	}
 	
-	@Override
+	
 	public RouteSummary select(String routeName) {
 		return session.get(RouteSummary.class, routeName);
 	}
 	
-	@Override
 	public List<RouteSummary> selectAll(){
 		
 		Query<RouteSummary> query = session.createQuery("From RouteSummary", RouteSummary.class);

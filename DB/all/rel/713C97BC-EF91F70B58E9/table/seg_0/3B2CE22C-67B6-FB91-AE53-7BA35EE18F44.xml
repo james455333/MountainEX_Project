@@ -15,11 +15,20 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>FF54EC38-05E2-19D7-2E7B-510B3B9F8127</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>06F76DA7-9361-A6B4-9431-591B905E9DB1</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>600000</autoIncrementStartWith>
+<autoIncrementMinValue>600000</autoIncrementMinValue>
+<autoIncrementMaxValue>619999</autoIncrementMaxValue>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>10</autoIncrementCache>
+<autoIncrementSequenceName>seq_shopitem</autoIncrementSequenceName>
 </Column>
 <Column name="name" id="F008DF0D-D0D2-CC17-1AA3-B0D0F506FA09">
 <sourceDDLFile>all.ddl</sourceDDLFile>
@@ -51,9 +60,10 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>8479E0D6-8BC6-9CD2-A8DF-02BF3D024E42</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>FF00A895-9497-B3BE-4FF7-F7916FE45404</domain>
+<dataTypePrecision>4</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -66,9 +76,10 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>2DC22210-8E11-B686-E439-54E52A513A4F</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>1075092A-5B10-F9E7-5C0D-1C5D564A64DD</domain>
+<dataTypePrecision>3</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>

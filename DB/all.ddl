@@ -1,5 +1,5 @@
 -- 產生者Oracle SQL Developer Data Modeler 20.2.0.167.1538
--- 於:2020-10-19 21:55:18 TST
+-- 於:2020-10-23 21:11:05 TST
 -- 位置:Oracle Database 12cR2
 -- 類型:Oracle Database 12cR2
 
@@ -9,56 +9,54 @@
 
 -- predefined type, no DDL - XMLTYPE
 
-CREATE SEQUENCE seq_act_history START WITH 4000000 MAXVALUE 4999999 MINVALUE 4000000 NOCACHE ORDER;
+CREATE SEQUENCE seq_act_history START WITH 4000000 INCREMENT BY 1 MAXVALUE 4999999 MINVALUE 4000000 CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_act_reg START WITH 4000000 MAXVALUE 4999999 MINVALUE 4000000 CYCLE NOCACHE ORDER;
+CREATE SEQUENCE seq_act_reg START WITH 4000000 INCREMENT BY 1 MAXVALUE 4999999 MINVALUE 4000000 CYCLE CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_act_resp START WITH 40000000 MAXVALUE 49999999 MINVALUE 40000000 NOCACHE ORDER;
+CREATE SEQUENCE seq_act_resp START WITH 40000000 INCREMENT BY 1 MAXVALUE 49999999 MINVALUE 40000000 CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_activity START WITH 40000 MAXVALUE 49999 MINVALUE 40000 NOCACHE ORDER;
+CREATE SEQUENCE seq_activity START WITH 40000 INCREMENT BY 1 MAXVALUE 49999 MINVALUE 40000 CYCLE CACHE 10 ORDER;
 
 CREATE SEQUENCE seq_area START WITH 100 MAXVALUE 199 MINVALUE 1 NOCACHE ORDER;
 
-CREATE SEQUENCE seq_camp START WITH 21000 MAXVALUE 25999 MINVALUE 21000 NOCACHE ORDER;
+CREATE SEQUENCE seq_camp START WITH 21000 INCREMENT BY 1 MAXVALUE 25999 MINVALUE 21000 CACHE 10 ORDER;
 
 CREATE SEQUENCE seq_county START WITH 2000 MAXVALUE 2999 MINVALUE 2000 NOCACHE ORDER;
 
 CREATE SEQUENCE seq_firstclass START WITH 600 MAXVALUE 699 MINVALUE 600 NOCACHE ORDER;
 
-CREATE SEQUENCE seq_house START WITH 26000 MAXVALUE 29999 MINVALUE 26000 NOCACHE ORDER;
+CREATE SEQUENCE seq_house START WITH 26000 INCREMENT BY 1 MAXVALUE 29999 MINVALUE 26000 CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_memberid START WITH 1000000 MAXVALUE 9999999 MINVALUE 1 NOCACHE ORDER;
+CREATE SEQUENCE seq_memberid START WITH 1000000 INCREMENT BY 4 MAXVALUE 9999999 MINVALUE 1 CACHE 10 ORDER;
 
 CREATE SEQUENCE seq_memberstatus START WITH 100 INCREMENT BY 10 MAXVALUE 190 MINVALUE 10 NOCACHE ORDER;
 
 CREATE SEQUENCE seq_np START WITH 300 MAXVALUE 399 MINVALUE 300 NOCACHE ORDER;
 
-CREATE SEQUENCE seq_order START WITH 6200000 MAXVALUE 6999999 MINVALUE 6200000 CYCLE NOCACHE ORDER;
+CREATE SEQUENCE seq_order START WITH 6200000 MAXVALUE 6999999 MINVALUE 6200000 CYCLE CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_orderitems START WITH 6000000 MAXVALUE 6999999 MINVALUE 6000000 CYCLE NOCACHE ORDER;
+CREATE SEQUENCE seq_orderitems START WITH 6000000 MAXVALUE 6999999 MINVALUE 6000000 CYCLE CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_route START WITH 3000 MAXVALUE 3999 MINVALUE 3000 NOCACHE ORDER;
+CREATE SEQUENCE seq_route START WITH 3000 INCREMENT BY 1 MAXVALUE 3999 MINVALUE 3000 CACHE 10 ORDER;
 
 CREATE SEQUENCE seq_second START WITH 6000 MAXVALUE 6999 MINVALUE 6000 NOCACHE ORDER;
 
-CREATE SEQUENCE seq_shopitem START WITH 600000 MAXVALUE 619999 MINVALUE 600000 NOCACHE ORDER;
+CREATE SEQUENCE seq_shopitem START WITH 600000 INCREMENT BY 1 MAXVALUE 619999 MINVALUE 600000 CACHE 10 ORDER;
 
-CREATE SEQUENCE seq_side_resp START WITH 40000000 MAXVALUE 49999999 MINVALUE 40000000 NOCACHE ORDER;
+CREATE SEQUENCE seq_side_resp START WITH 40000000 INCREMENT BY 1 MAXVALUE 49999999 MINVALUE 40000000 CACHE 10 ORDER;
+
+CREATE TABLE act_img (
+    seqno                 NUMBER(7) NOT NULL,
+    img                   CLOB,
+    activity_basic_seqno  NUMBER(5) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE act_img ADD CONSTRAINT act_img_pk PRIMARY KEY ( seqno );
 
 CREATE TABLE activity_basic (
     seqno            NUMBER(5) NOT NULL,
-    member_basic_id  NUMBER(7) NOT NULL,
-    route_basic_id2  NUMBER(4) NOT NULL,
-    title            NVARCHAR2(250) NOT NULL,
-    price            NUMBER(10) NOT NULL,
-    totalday         NVARCHAR2(150) NOT NULL,
-    act_other        BLOB,
-    reg_now          NUMBER(5),
-    reg_top          NUMBER(5),
-    start_date       DATE NOT NULL,
-    end_date         DATE NOT NULL,
-    reg_end_date     DATE NOT NULL,
-    post_date        DATE NOT NULL
+    member_basic_id  NUMBER(7) NOT NULL
 )
 LOGGING;
 
@@ -67,13 +65,13 @@ ALTER TABLE activity_basic ADD CONSTRAINT activity_basic_pk PRIMARY KEY ( seqno 
 CREATE TABLE activity_history (
     seqno         NUMBER(7)
         CONSTRAINT nnc_activity_basicv1_seqno NOT NULL,
+    memeber_id    VARCHAR2(150) NOT NULL,
     route_name    NUMBER(4),
     title         NVARCHAR2(250) NOT NULL,
     price         NUMBER(10) NOT NULL,
-    totalday      NVARCHAR2(150),
+    totalday      NVARCHAR2(150) NOT NULL,
     act_other     BLOB,
-    reg_now       NUMBER(5),
-    reg_top       NUMBER(5),
+    reg_final     NUMBER(5) NOT NULL,
     start_date    DATE NOT NULL,
     end_date      DATE NOT NULL,
     reg_end_date  DATE NOT NULL,
@@ -83,16 +81,53 @@ LOGGING;
 
 ALTER TABLE activity_history ADD CONSTRAINT activity_basicv1_pk PRIMARY KEY ( seqno );
 
+CREATE TABLE activity_info (
+    activity_basic_seqno  NUMBER(5) NOT NULL,
+    route_basic_id        NUMBER(4) NOT NULL,
+    title                 NVARCHAR2(250) NOT NULL,
+    price                 NUMBER(5) NOT NULL,
+    totalday              NVARCHAR2(150) NOT NULL,
+    note                  BLOB,
+    reg_now               NUMBER(5) NOT NULL,
+    reg_top               NUMBER(5) NOT NULL,
+    start_date            DATE NOT NULL,
+    end_date              DATE NOT NULL,
+    reg_end_date          DATE,
+    post_date             DATE
+)
+LOGGING;
+
+ALTER TABLE activity_info ADD CONSTRAINT activity_info_pk PRIMARY KEY ( activity_basic_seqno );
+
 CREATE TABLE activity_registry (
     seqno                 NUMBER(7) NOT NULL,
     activity_basic_seqno  NUMBER(5) NOT NULL,
     member_basic_id       NUMBER(7) NOT NULL,
     reg_date              DATE NOT NULL,
-    deniedtag             VARCHAR2(1 CHAR)
+    deniedtag             VARCHAR2(1 CHAR),
+    confirm               VARCHAR2(1 CHAR),
+    deny_reson            BLOB
 )
 LOGGING;
 
 ALTER TABLE activity_registry ADD CONSTRAINT activity_registry_pk PRIMARY KEY ( seqno );
+
+CREATE TABLE activity_registry_info (
+    seqno                    NUMBER(8) NOT NULL,
+    activity_registry_seqno  NUMBER(7) NOT NULL,
+    name                     NVARCHAR2(1) NOT NULL,
+    birthday                 DATE NOT NULL,
+    personal_id              VARCHAR2(20) NOT NULL,
+    contact_cellphone        VARCHAR2(20) NOT NULL,
+    contact_phone            VARCHAR2(50) NOT NULL,
+    contact_email            VARCHAR2(100),
+    emg_contact_name         NVARCHAR2(150) NOT NULL,
+    emg_contact_cellphone    VARCHAR2(20) NOT NULL,
+    emg_contact_phone        VARCHAR2(50) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE activity_registry_info ADD CONSTRAINT activity_registry_info_pk PRIMARY KEY ( seqno );
 
 CREATE TABLE activity_response (
     seqno                 NUMBER(8) NOT NULL,
@@ -110,8 +145,8 @@ CREATE TABLE activity_sideresp (
     seqno                    NUMBER(8) NOT NULL,
     activity_response_seqno  NUMBER(8) NOT NULL,
     member_basic_id          NUMBER(7) NOT NULL,
-    post_date                DATE NOT NULL,
     message                  BLOB NOT NULL,
+    post_date                DATE NOT NULL,
     privatetag               VARCHAR2(1 CHAR)
 )
 LOGGING;
@@ -224,20 +259,21 @@ LOGGING;
 
 ALTER TABLE member_basic ADD CONSTRAINT memberid_pk PRIMARY KEY ( id );
 
+ALTER TABLE member_basic ADD CONSTRAINT member_basic__un_account UNIQUE ( account );
+
 CREATE TABLE member_info (
-    memberbasic_id  NUMBER(7) NOT NULL,
-    birthday        DATE,
-    neck_name       NVARCHAR2(50),
-    phone           VARCHAR2(15),
-    gender          VARCHAR2(30 CHAR) NOT NULL,
-    climb_ex        VARCHAR2(20),
-    per_img         CLOB,
-    other           BLOB
+    member_basic_id  NUMBER(7) NOT NULL,
+    birthday         DATE,
+    neck_name        NVARCHAR2(50),
+    phone            VARCHAR2(15),
+    gender           VARCHAR2(30 CHAR),
+    climb_ex         VARCHAR2(20),
+    per_img          CLOB,
+    other            BLOB
 )
 LOGGING;
 
-ALTER TABLE member_info ADD CONSTRAINT membersummary_pk PRIMARY KEY ( memberbasic_id,
-                                                                      gender );
+ALTER TABLE member_info ADD CONSTRAINT membersummary_pk PRIMARY KEY ( member_basic_id );
 
 CREATE TABLE member_privacy (
     memberbasic_id  NUMBER(7) NOT NULL,
@@ -345,14 +381,26 @@ LOGGING;
 
 ALTER TABLE second_class ADD CONSTRAINT second_class_pk PRIMARY KEY ( id );
 
+ALTER TABLE act_img
+    ADD CONSTRAINT act_img_activity_basic_fk FOREIGN KEY ( activity_basic_seqno )
+        REFERENCES activity_basic ( seqno )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
 ALTER TABLE activity_basic
     ADD CONSTRAINT activity_basic_member_basic_fk FOREIGN KEY ( member_basic_id )
         REFERENCES member_basic ( id )
             ON DELETE CASCADE
     NOT DEFERRABLE;
 
-ALTER TABLE activity_basic
-    ADD CONSTRAINT activity_basic_route_basic_fk FOREIGN KEY ( route_basic_id2 )
+ALTER TABLE activity_info
+    ADD CONSTRAINT activity_info_activity_basic_fk FOREIGN KEY ( activity_basic_seqno )
+        REFERENCES activity_basic ( seqno )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
+ALTER TABLE activity_info
+    ADD CONSTRAINT activity_info_route_basic_fk FOREIGN KEY ( route_basic_id )
         REFERENCES route_basic ( id )
             ON DELETE CASCADE
     NOT DEFERRABLE;
@@ -360,6 +408,12 @@ ALTER TABLE activity_basic
 ALTER TABLE activity_registry
     ADD CONSTRAINT activity_registry_activity_basic_fk FOREIGN KEY ( activity_basic_seqno )
         REFERENCES activity_basic ( seqno )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
+ALTER TABLE activity_registry_info
+    ADD CONSTRAINT activity_registry_info_activity_registry_fk FOREIGN KEY ( activity_registry_seqno )
+        REFERENCES activity_registry ( seqno )
             ON DELETE CASCADE
     NOT DEFERRABLE;
 
@@ -451,7 +505,7 @@ ALTER TABLE member_privacy
     NOT DEFERRABLE;
 
 ALTER TABLE member_info
-    ADD CONSTRAINT membersummary_memberbasic_fk FOREIGN KEY ( memberbasic_id )
+    ADD CONSTRAINT membersummary_memberbasic_fk FOREIGN KEY ( member_basic_id )
         REFERENCES member_basic ( id )
             ON DELETE CASCADE
     NOT DEFERRABLE;
@@ -495,36 +549,6 @@ ALTER TABLE second_class
         REFERENCES first_class ( id )
             ON DELETE CASCADE
     NOT DEFERRABLE;
-
-CREATE OR REPLACE VIEW VIEW_member_registry_info ( seqno, account, password, last_name, first_name, birthday, phone, email, neck_name, climb_ex, gender, other, reg_date, preson_img, status ) AS
-SELECT
-    member_info.memberbasic_id    AS "seqno",
-    member_basic.account          AS "account",
-    member_privacy.password       AS "password",
-    member_basic.last_name        AS "last_name",
-    member_basic.first_name       AS "first_name",
-    member_info.birthday          AS "birthday",
-    member_info.phone             AS "phone",
-    member_basic.email            AS "email",
-    member_info.neck_name         AS "neck_name",
-    member_info.climb_ex          AS "climb_ex",
-    member_info.gender            AS "gender",
-    member_info.other             AS "other",
-    member_basic.reg_date         AS "reg_date",
-    member_info.per_img           AS "preson_img",
-    member_status.name            AS "status"
-FROM
-    member_info,
-    member_basic,
-    member_privacy,
-    member_status
-WHERE
-        member_basic.id = member_info.memberbasic_id
-    AND member_basic.id = member_privacy.memberbasic_id
-    AND member_status.id = member_basic.member_status_id
-ORDER BY
-    "seqno" 
-;
 
 CREATE OR REPLACE TRIGGER tri_act_history 
     BEFORE INSERT ON activity_history 
@@ -595,6 +619,7 @@ CREATE OR REPLACE TRIGGER tri_memberid
     FOR EACH ROW 
 BEGIN
     :new.id := seq_memberid.nextval;
+    :new.reg_date := sysdate;
 END; 
 /
 
@@ -662,12 +687,57 @@ BEGIN
 END; 
 /
 
+CREATE SEQUENCE seq_act_img START WITH 4000000 MINVALUE 4000000 MAXVALUE 4999999 CYCLE CACHE 10 ORDER;
+
+CREATE OR REPLACE TRIGGER tri_act_img BEFORE
+    INSERT ON act_img
+    FOR EACH ROW
+BEGIN
+    :new.seqno := seq_act_img.nextval;
+END;
+/
+
+CREATE SEQUENCE seq_act_reg_info START WITH 40000000 MINVALUE 40000000 MAXVALUE 49999999 CYCLE CACHE 10 ORDER;
+
+CREATE OR REPLACE TRIGGER tri_act_reg_info BEFORE
+    INSERT ON activity_registry_info
+    FOR EACH ROW
+BEGIN
+    :new.seqno := seq_act_reg_info.nextval;
+END;
+/
+
+CREATE SEQUENCE seq_firclass START WITH 600 MINVALUE 600 MAXVALUE 699 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER first_class_id_trg BEFORE
+    INSERT ON first_class
+    FOR EACH ROW
+BEGIN
+    :new.id := seq_firclass.nextval;
+END;
+/
+
 CREATE OR REPLACE TRIGGER tri_house BEFORE
     INSERT ON house_basic
     FOR EACH ROW
-    WHEN ( new.id IS NULL )
 BEGIN
     :new.id := seq_house.nextval;
+END;
+/
+
+CREATE OR REPLACE TRIGGER item_basic_seqno_trg BEFORE
+    INSERT ON item_basic
+    FOR EACH ROW
+BEGIN
+    :new.seqno := seq_shopitem.nextval;
+END;
+/
+
+CREATE OR REPLACE TRIGGER second_class_id_trg BEFORE
+    INSERT ON second_class
+    FOR EACH ROW
+BEGIN
+    :new.id := seq_second.nextval;
 END;
 /
 
@@ -675,16 +745,16 @@ END;
 
 -- Oracle SQL Developer Data Modeler 摘要報表:
 -- 
--- CREATE TABLE                            24
+-- CREATE TABLE                            27
 -- CREATE INDEX                             5
--- ALTER TABLE                             50
--- CREATE VIEW                              1
+-- ALTER TABLE                             57
+-- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
 -- CREATE PACKAGE BODY                      0
 -- CREATE PROCEDURE                         0
 -- CREATE FUNCTION                          0
--- CREATE TRIGGER                          18
+-- CREATE TRIGGER                          23
 -- ALTER TRIGGER                            0
 -- CREATE COLLECTION TYPE                   0
 -- CREATE STRUCTURED TYPE                   0
@@ -697,7 +767,7 @@ END;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                         18
+-- CREATE SEQUENCE                         21
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0
