@@ -19,9 +19,14 @@
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
-<ColumnProxy name="deni_date" id="6B68D53C-7CA4-15B8-DC45-372ADEA8F86B">
+<ColumnProxy name="confirm" id="7706DDA8-DDBC-6C13-0895-CAA972662360">
 <createdBy>Student</createdBy>
-<createdTime>2020-10-20 09:53:45 UTC</createdTime>
+<createdTime>2020-10-22 13:49:21 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="deny_reson" id="AD772CA2-0C52-0D96-E9F5-3D7FED8C80D9">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-22 13:49:21 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
 <ColumnProxy name="activity_basic_seqno" id="C64EC563-5BEB-A48B-F5DB-DD033C9505A5">

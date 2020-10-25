@@ -40,12 +40,12 @@
 </head>
 
 <body>
-	<c:if test="${ empty LoginOK }">
+	<%-- <c:if test="${ empty LoginOK }">
 		<script>
 			alert("閒置過長或尚未登入，關閉本視窗將導向會員登入頁")
 			document.location.href="../../member/login/login.jsp";
 		</script>
-	</c:if>
+	</c:if> --%>
 
 	<!-- <c:set var='functionCheck'  value="none" scope="session"/> -->
 

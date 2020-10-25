@@ -111,6 +111,16 @@
 <colUsage columnID="1F6AFFD3-5860-2C3E-D7B1-8A10B0C5DACD"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="C3D8134F-4E97-0229-A1C8-7053DF218B85" name="member_basic__UN_account">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-21 08:48:58 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2058BFEF-D59C-E639-4322-747F1C75A942"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="9F974C56-ABA0-DBCF-34AF-76694A9CE088" name="member_basic_member_status_fk">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-20 09:42:12 UTC</createdTime>

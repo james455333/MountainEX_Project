@@ -1,0 +1,50 @@
+@charset "BIG5";
+
+#searchBar{
+	position : relative;
+	height : 5%;
+	width : 100%;
+	border-bottom : 1px solid green;
+	
+}
+.searchSelect{
+	width : 20%;
+	height : 100%;
+	float : left;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.searchAll{
+	width : 40%;
+	height : 100%;
+	float : right;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+	
+}
+#mainContainer{
+	position : relative;
+	height : 85%;
+	width : 100%;
+	background-color : #ddeb7a;	
+	
+}
+
+#controller{
+	position : relative;
+	height : 3.5%;
+	width : 100%;
+	border-bottom: 1px solid green;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+#controller div{
+	width : 33%;
+}
+.hidden{
+	display : none;
+}
