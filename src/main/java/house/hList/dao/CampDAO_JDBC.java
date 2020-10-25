@@ -19,8 +19,8 @@ public class CampDAO_JDBC {
 	DataS dataS = new DataS();
 	public List<CampBeen> listCamp(String abc){
 		List<CampBeen> cBList = new ArrayList<>();
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		try (
 				Connection connection = datasoure.getConnection();
@@ -46,8 +46,8 @@ public class CampDAO_JDBC {
 		}
 	public List<CampBeen> slesctCity(String abc){
 		List<CampBeen> cBList = new ArrayList<>();
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		try (
 				Connection connection = datasoure.getConnection();
@@ -75,8 +75,8 @@ public class CampDAO_JDBC {
 	
 	public List<CampBeen> slesctTown(String abc){
 		List<CampBeen> cBList = new ArrayList<>();
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		try (
 				Connection connection = datasoure.getConnection();
@@ -104,8 +104,8 @@ public class CampDAO_JDBC {
 	
 	public List<CampBeen> slesctName(String abc){
 		List<CampBeen> cBList = new ArrayList<>();
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		try (
 				Connection connection = datasoure.getConnection();
@@ -133,8 +133,8 @@ public class CampDAO_JDBC {
 	
 public void insertCamp(String cit ,String cmpt,String cmpn, String cmpd){
 		
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		
 		try (Connection connection = datasoure.getConnection();){
@@ -159,8 +159,8 @@ public void insertCamp(String cit ,String cmpt,String cmpn, String cmpd){
 	}
 	
 	public void deleteCamp(String del) {
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		try (Connection connection = datasoure.getConnection();){
 			PreparedStatement stmt = connection.prepareStatement("delete from camp where campname=?");
@@ -175,8 +175,8 @@ public void insertCamp(String cit ,String cmpt,String cmpn, String cmpd){
 }
 	
 	public void updateCamp(String cit1 ,String cmpt1,String cmpn1, String cmpd1) {
-		dataS.setUsername("HI");
-		dataS.setUserPassword("HI");
+		dataS.setUsername("hr");
+		dataS.setUserPassword("hr");
 		DataSource datasoure = dataS.getDatasoure();
 		System.out.println("333");
 		try (Connection connection = datasoure.getConnection();){

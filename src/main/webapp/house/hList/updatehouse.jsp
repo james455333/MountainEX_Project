@@ -28,13 +28,6 @@
 	margin-top:50px;
 	text-align:center;
 	}
-	td, th {
-	padding: 10px;
-	text-align: center;
-	}
-	.move_center{
-	margin-left:45%;
-	}
 </style>
 </head>
 
@@ -54,19 +47,6 @@
 		
 		<div class="ya">
 		<h2>成功 !</h2><br>
-		
-				<table class="move_center">
-				
-						<tr><td>國家公園</td>	<td>${mou}</td></tr>
-						<tr><td>房名</td>	<td>${nam}</td></tr>
-						<tr><td>床位</td>	<td>${sea}</td></tr>
-						<tr><td>營地總數</td>	<td>${cam}</td></tr>
-						<tr><td>海拔</td>	<td>${hig}</td></tr>
-					
-				</table>
-		
-		
-		
 		<p><a href="house.jsp" type="button">返回</a></p>        
     
     </div>

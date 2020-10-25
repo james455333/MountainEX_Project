@@ -68,15 +68,15 @@
 		<fieldset class="cow" >
 		<legend><caption><h2>新增露營區</h2></legend>
 		<div><label>縣市</label>
-		<input type="text" name="cit" size="10" placeholder="高雄市" value="高雄市">
+		<input type="text" name="cit" size="10" placeholder="高雄市">
 	</div><div><label>鄉鎮</label>
-		<input type="text" name="cmpt" size="10" placeholder="鳳山區" value="鳳山區">
+		<input type="text" name="cmpt" size="10" placeholder="鳳山區">
 	</div><div>	<label>營地名稱</label>
-		<input type="text" name="cmpn" size="20" placeholder="害你好露營區" value="害你好露營區">
+		<input type="text" name="cmpn" size="20" placeholder="害你好露營區">
 	</div><div>	<label>網址</label>
-		<input type="text" name="cmpd" size="50" placeholder="https://evshhips.pixnet.net/blog" value="https://evshhips.pixnet.net/blog">
+		<input type="text" name="cmpd" size="50" placeholder="https://evshhips.pixnet.net/blog">
 	
-	<div><input type="submit" value="新增" onclick="insert_OK()"></div>
+	<div><input type="submit" value="新增"></div>
 		</fieldset>
 		
 		
@@ -104,11 +104,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script>
-	function insert_OK(){
-		alert("新增成功")
-	}
-	</script>
+	
 		
 		
 </body>
