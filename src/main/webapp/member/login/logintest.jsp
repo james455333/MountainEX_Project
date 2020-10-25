@@ -40,7 +40,7 @@
 		<!-- 主要內容 -->
 		<div id="content">
 			<div id="barNav"></div>
-			<form id="loginFrame" action="<c:url value='LoginServletTest'></c:url>" method='post'>
+			<form id="loginFrameTest" action="<c:url value='LoginServletTest'></c:url>" method='post'>
 				<h1 class="h3 mb-3 font-weight-normal">會員登入</h1>
 				<label for="inputEmail" class="sr-only">帳號：</label>
 					<input type="text" id="userId" name="userId" class="form-control" placeholder="請輸入會員帳號" required="" autofocus="">

@@ -117,7 +117,7 @@ public class MemberBean {
 		this.unpaid_amount = unpaid_amount;
 	}
 	
-	@Column (name = "IMAGE")
+	@Column (name = "MEMBERIMAGE")
 	public Blob getMemberImage() {
 		return memberImage;
 	}

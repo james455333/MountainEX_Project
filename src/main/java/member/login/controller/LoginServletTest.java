@@ -49,15 +49,17 @@ public class LoginServletTest extends HttpServlet {
 		
 		MemberBean mb = new MemberBean();
 		
-		Query<MemberBean> query = session.createQuery("From Member where memberId =: userId and password =: password", MemberBean.class);
-		query.setParameter("userId", userId);
-		query.setParameter("password", password);
-		
-		MemberBean m1 = query.uniqueResult();
 		
 		try {
 			
-			if (m1 != null) {
+			Query<MemberBean> query = session.createQuery("From Member where memberId =: userId and password =: password", MemberBean.class);
+			query.setParameter("userId", userId);
+			query.setParameter("password", password);
+			
+			mb = query.uniqueResult();
+			
+			
+			if (mb != null) {
 				session2.setAttribute("LoginOK", mb);
 			}else {
 				errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
@@ -71,7 +73,7 @@ public class LoginServletTest extends HttpServlet {
 			response.sendRedirect("loginsucc.jsp");
 			return;
 		}else {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("logintest.jsp");
 			return;
 		}
 		
