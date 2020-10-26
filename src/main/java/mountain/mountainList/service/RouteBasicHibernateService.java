@@ -47,4 +47,9 @@ public class RouteBasicHibernateService implements RouteBasicService {
 		return rBHibDAO.update(rBBean);
 	}
 
+	@Override
+	public List<RouteBasic> selectAllWithNPID(int npID) {
+		return rBHibDAO.selectAllWithNPID(npID);
+	}
+
 }

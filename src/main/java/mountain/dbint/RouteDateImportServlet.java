@@ -1,4 +1,4 @@
-package dbinit;
+package mountain.dbint;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -45,13 +45,15 @@ public class RouteDateImportServlet extends HttpServlet {
 	private static String RouteImgTitle = "RouteMap";
 	private static int RouteImgNum = 1;
 	private static final String CHARSET = "UTF-8";
+	//系統根目錄 根據真實目的地修改
+	private static final String SYSTEM_ROOT="C:\\DataSource\\workspace\\MountainEX_Project";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
 
-		File file = new File(System.getProperty("user.dir")+"\\data/Mountain_UTF8.csv");
+		File file = new File(SYSTEM_ROOT+"\\data/Mountain_UTF8.csv");
 		importDataToDB(file, session);
 
 	}
@@ -137,7 +139,7 @@ public class RouteDateImportServlet extends HttpServlet {
 	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
 
 		String routeImgNum = String.valueOf(RouteImgNum++);
-		String localPath = System.getProperty("user.dir")+"\\src\\main\\webapp\\mountain\\images/" + RouteImgTitle
+		String localPath = SYSTEM_ROOT+"\\src\\main\\webapp\\mountain\\images/" + RouteImgTitle
 				+ routeImgNum + ".jpg";
 	
 		// download

@@ -69,4 +69,12 @@ public class RouteBasicHibernateDAO implements RouteBasicDAO {
 		return null;
 	}
 
+	@Override
+	public List<RouteBasic> selectAllWithNPID(int npID) {
+		
+		Query<RouteBasic> querys = session.createQuery("From RouteBasic Where national_park = "+ npID  , RouteBasic.class);
+		List<RouteBasic> list = querys.list();
+		return list;
+	}
+
 }

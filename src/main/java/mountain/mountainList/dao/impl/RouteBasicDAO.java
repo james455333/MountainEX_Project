@@ -14,6 +14,8 @@ public interface RouteBasicDAO {
 	
 	public List<RouteBasic> selectAll();
 	
+	public List<RouteBasic> selectAllWithNPID(int npID);
+
 	public boolean delete(int rBID);
 	
 	public RouteBasic update(RouteBasic rBBean);

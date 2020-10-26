@@ -14,6 +14,8 @@ public interface RouteBasicService {
 	
 	public List<RouteBasic> selectAll();
 	
+	public List<RouteBasic> selectAllWithNPID(int npID);
+	
 	public boolean delete(int rBId);
 	
 	public RouteBasic update(RouteBasic rBBean);
