@@ -22,7 +22,9 @@ public class ItemBasic {
 	private int stock;
 	private int secondClassId;
 	private int firstClassId;
+	private FirstClass firstClass;
 	private SecondClass secondClass;
+	
 	private ItemInfo itemInfo;
 	
 	@Id @Column(name = "SEQNO")
@@ -76,6 +78,14 @@ public class ItemBasic {
 	}
 	public void setItemInfo(ItemInfo itemInfo) {
 		this.itemInfo = itemInfo;
+	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "FIRST_CLASS_ID" ,referencedColumnName = "ID")
+	public FirstClass getFirstClass() {
+		return firstClass;
+	}
+	public void setFirstClass(FirstClass firstClass) {
+		this.firstClass = firstClass;
 	}
 
 }

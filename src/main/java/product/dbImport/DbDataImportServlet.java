@@ -36,6 +36,7 @@ import product.model.FirstClassDAO;
 import product.model.ItemBasic;
 import product.model.ItemBasicDAO;
 import product.model.ItemInfo;
+import product.model.ItemInfoDAO;
 import product.model.SecondClass;
 import product.model.SecondClassDAO;
 import util.HibernateUtil;
@@ -85,17 +86,21 @@ public class DbDataImportServlet extends HttpServlet {
 				String secondClass = csvRecord.get("SECOND_CLASS");
 				String stockString = csvRecord.get("STOCK");
 				String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
-				System.out.println(imgURL);
+//				System.out.println(imgURL);
 
 				FirstClass fcBeam = new FirstClass(); 
-				fcBeam.setName(firstClassName);
+				
 				SecondClass scBean = new SecondClass();
-				scBean.setName(secondClass);
 				ItemBasic ibBean = new ItemBasic();
+				ItemInfo iiBean = new ItemInfo();
+
+				
+				fcBeam.setName(firstClassName);
+				fcBeam.setSecondClasses(secondClasses);
+				scBean.setName(secondClass);
 				ibBean.setName(name);
 				int stock = Integer.parseInt(stockString);
 				ibBean.setStock(stock);
-				ItemInfo iiBean = new ItemInfo();
 				iiBean.setType(type);
 				int price = Integer.parseInt(pricesString);
 				iiBean.setPrice(price);
@@ -108,15 +113,22 @@ public class DbDataImportServlet extends HttpServlet {
 				iiBean.setImgUrl(imgUrlBlob);
 				
 				Set<SecondClass> secondClasses = new HashSet<SecondClass>();
-				fcBeam.setSecondClasses(secondClasses);
+				
 				
 				Set<ItemBasic> itemBasics =new HashSet<ItemBasic>();
 				scBean.setItemBasics(itemBasics);
-				
+				ibBean.setFirstClassId(firstClass);
 				ibBean.setItemInfo(iiBean);
 				iiBean.setItemBasic(ibBean);
 				
 				
+				FirstClassDAO firstClassDAO = new FirstClassDAO(session);
+				
+				SecondClassDAO secondClassDAO = new SecondClassDAO(session);
+				
+				ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
+				
+				ItemInfoDAO itemInfoDAO = new ItemInfoDAO(session);
 //				ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
 //				ItemBasic queryIB = itemBasicDAO.select(name);
 //				if(queryIB ==null){
@@ -137,7 +149,7 @@ public class DbDataImportServlet extends HttpServlet {
 //					}
 //				}
 //				
-				downloadGetLocalPath(imgURL);
+//				downloadGetLocalPath(imgURL);
 
 			}
 		} catch (FileNotFoundException e) {

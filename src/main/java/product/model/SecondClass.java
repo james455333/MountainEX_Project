@@ -1,7 +1,7 @@
 package product.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,8 +22,7 @@ public class SecondClass {
 	private String name;
 	private String firstClassId;
 	private FirstClass firstClass;
-	private Set<ItemBasic> itemBasics =new HashSet<ItemBasic>();
-	
+	private List<ItemBasic> itemBasics =new ArrayList<ItemBasic>();
 	@Id@Column(name = "id")
 	public int getId() {
 		return id;
@@ -54,10 +53,10 @@ public class SecondClass {
 		this.firstClass = firstClass;
 	}
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "secondClass")
-	public Set<ItemBasic> getItemBasics() {
+	public List<ItemBasic> getItemBasics() {
 		return itemBasics;
 	}
-	public void setItemBasics(Set<ItemBasic> itemBasics) {
+	public void setItemBasics(List<ItemBasic> itemBasics) {
 		this.itemBasics = itemBasics;
 	}
 	
