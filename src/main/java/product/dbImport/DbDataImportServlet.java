@@ -36,7 +36,13 @@ public class DbDataImportServlet extends HttpServlet {
 		List<CSVRecord> records = parse.getRecords();
 		
 		for (CSVRecord csvRecord : records) {
-			String string = csvRecord.get("");
+			String name = csvRecord.get("NAME");
+			String type = csvRecord.get("TYPE");
+			String price = csvRecord.get("PRICE");
+			String secondClass = csvRecord.get("SECOND_CLASS");
+			String stock = csvRecord.get("STOCK");
+			String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
+			
 		}
 		
 		
