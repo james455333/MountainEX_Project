@@ -6,7 +6,7 @@
 <ownerDesignName>all</ownerDesignName>
 <importedID>D00AD014-4B02-AACB-35E6-AEDD240C4783</importedID>
 <referredTableLongName>member_basic</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>6A0FDB96-6DC8-28D5-A109-495395AAF6E4</referredTableID>
 <keyObject>4EAE3050-AB00-0F37-0D3A-0B82B8C3610F</keyObject>
 <referredKeyID>4EAE3050-AB00-0F37-0D3A-0B82B8C3610F</referredKeyID>

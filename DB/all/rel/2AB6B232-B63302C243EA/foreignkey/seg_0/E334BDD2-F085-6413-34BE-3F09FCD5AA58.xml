@@ -6,7 +6,7 @@
 <ownerDesignName>all</ownerDesignName>
 <importedID>CFE794A6-86EF-4E94-3AAE-D4C72967457E</importedID>
 <referredTableLongName>first_class</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>B2865243-8445-278F-AFCF-CC6648123269</referredTableID>
 <keyObject>56785523-0205-E501-2A02-DF760E4E0BF0</keyObject>
 <referredKeyID>56785523-0205-E501-2A02-DF760E4E0BF0</referredKeyID>

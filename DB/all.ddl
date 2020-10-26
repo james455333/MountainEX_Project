@@ -1,5 +1,5 @@
 -- 產生者Oracle SQL Developer Data Modeler 20.2.0.167.1538
--- 於:2020-10-26 00:22:52 TST
+-- 於:2020-10-26 09:25:26 TST
 -- 位置:Oracle Database 12cR2
 -- 類型:Oracle Database 12cR2
 
@@ -467,6 +467,7 @@ ALTER TABLE counties
 ALTER TABLE house_basic
     ADD CONSTRAINT house_basic_national_park_fk FOREIGN KEY ( national_park_id )
         REFERENCES national_park ( id )
+            ON DELETE CASCADE
     NOT DEFERRABLE;
 
 ALTER TABLE house_info
@@ -484,6 +485,7 @@ ALTER TABLE item_info
 ALTER TABLE item_basic
     ADD CONSTRAINT itembasic_first_class_fk FOREIGN KEY ( first_class_id )
         REFERENCES first_class ( id )
+            ON DELETE CASCADE
     NOT DEFERRABLE;
 
 ALTER TABLE item_basic
@@ -501,6 +503,7 @@ ALTER TABLE member_basic
 ALTER TABLE member_privacy
     ADD CONSTRAINT memberpwd_memberbasic_fk FOREIGN KEY ( memberbasic_id )
         REFERENCES member_basic ( id )
+            ON DELETE CASCADE
     NOT DEFERRABLE;
 
 ALTER TABLE member_info
@@ -536,11 +539,13 @@ ALTER TABLE orders
 ALTER TABLE route_basic
     ADD CONSTRAINT route_basic_national_park_fk FOREIGN KEY ( national_park_id )
         REFERENCES national_park ( id )
+            ON DELETE CASCADE
     NOT DEFERRABLE;
 
 ALTER TABLE route_info
     ADD CONSTRAINT route_info_route_basic_fk FOREIGN KEY ( route_basic_id )
         REFERENCES route_basic ( id )
+            ON DELETE CASCADE
     NOT DEFERRABLE;
 
 ALTER TABLE second_class

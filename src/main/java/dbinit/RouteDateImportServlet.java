@@ -39,7 +39,7 @@ import mountain.mountainList.service.impl.NationalParkService;
 import mountain.mountainList.service.impl.RouteBasicService;
 import util.HibernateUtil;
 
-@WebServlet("/RouteDateImportServlet")
+@WebServlet("/dataimport/RouteDateImportServlet")
 public class RouteDateImportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String RouteImgTitle = "RouteMap";
@@ -51,7 +51,7 @@ public class RouteDateImportServlet extends HttpServlet {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
 
-		File file = new File("C:\\±MÃD\\MountainEX_Project/Mountain_UTF8.csv");
+		File file = new File(System.getProperty("user.dir")+"\\data/Mountain_UTF8.csv");
 		importDataToDB(file, session);
 
 	}
@@ -64,11 +64,10 @@ public class RouteDateImportServlet extends HttpServlet {
 				InputStreamReader isr = new InputStreamReader(fis,CHARSET);
 				BufferedReader br = new BufferedReader(isr);) {
 			CSVParser parser = CSVFormat.EXCEL.withHeader().parse(br);
-			System.out.println("ÀÉ®×§ì¨ú§¹¦¨");
+			System.out.println("File load Succsess");
 
 			List<CSVRecord> results = parser.getRecords();
 
-			// Åª¨ú¥Ø¼ÐÀÉ®×¤º®e
 			for (CSVRecord csvRecord : results) {
 				String npName = csvRecord.get("npName");
 				String name = csvRecord.get("name");
@@ -78,7 +77,6 @@ public class RouteDateImportServlet extends HttpServlet {
 				String imgURL = csvRecord.get("img_url");
 				System.out.println(imgURL);
 
-				// ³]©wª«¥ó¤Î¤º®e
 				NationalPark npBean = new NationalPark();
 				npBean.setName(npName);
 				RouteBasic rBBean = new RouteBasic();
@@ -99,7 +97,6 @@ public class RouteDateImportServlet extends HttpServlet {
 				Blob localBlob = Hibernate.getLobCreator(session).createBlob(bytesLocal);
 				rIBean.setImgUrl(localBlob);
 
-				// ³]©wÃöÁp¤º®e
 				rBBean.setNational_park(npBean);
 				npBean.setRouteBasic(rBBean);
 				rBBean.setRouteInfo(rIBean);
@@ -111,16 +108,16 @@ public class RouteDateImportServlet extends HttpServlet {
 					rBBean.setNational_park(queryNP);
 					RouteBasic insertRB = rBService.insert(rBBean);
 					if(insertRB == null){
-						System.out.println("²Ä" + (++importCounter) + "µ§¸ê®Æ¬°ªÅ");
+						System.out.println("ç¬¬" + (++importCounter) + "ç­†è³‡æ–™ç‚ºç©º");
 					}else{
-						System.out.println("²Ä" + (++importCounter) + "µ§\t" + rIBean.getName());
+						System.out.println("ç¬¬" + (++importCounter) + "ç­† : \t" + rIBean.getName());
 					}
 				} else{
 					NationalPark insertNP = npService.insert(npBean);
 					if( insertNP == null){
-						System.out.println("²Ä" + (++importCounter) + "µ§¸ê®Æ¬°ªÅ");
+						System.out.println("ç¬¬" + (++importCounter) + "ç­†è³‡æ–™ç‚ºç©º");
 					}else {
-						System.out.println("²Ä" + (++importCounter) + "µ§\t" + rIBean.getName());
+						System.out.println("ç¬¬" + (++importCounter) + "ç­† : \t" + rIBean.getName());
 					}
 				}
 				
@@ -140,7 +137,7 @@ public class RouteDateImportServlet extends HttpServlet {
 	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
 
 		String routeImgNum = String.valueOf(RouteImgNum++);
-		String localPath = "C:\\±MÃD\\MountainEX_Project\\src\\main\\webapp\\mountain\\images/" + RouteImgTitle
+		String localPath = System.getProperty("user.dir")+"\\src\\main\\webapp\\mountain\\images/" + RouteImgTitle
 				+ routeImgNum + ".jpg";
 	
 		// download
