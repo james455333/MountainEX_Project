@@ -17,9 +17,9 @@ import javax.persistence.Transient;
 @Table(name = "item_basic")
 public class ItemBasic {
 	
-	private int seqno;
+	private long seqno;
 	private String name;
-	private int stock;
+	private int sotck;
 	private int secondClassId;
 	private int firstClassId;
 	private FirstClass firstClass;
@@ -29,10 +29,10 @@ public class ItemBasic {
 	
 	@Id @Column(name = "SEQNO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getSeqno() {
+	public long getSeqno() {
 		return seqno;
 	}
-	public void setSeqno(int seqno) {
+	public void setSeqno(long seqno) {
 		this.seqno = seqno;
 	}
 	@Column(name = "NAME")
@@ -41,13 +41,6 @@ public class ItemBasic {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	@Column(name = "STOCK")
-	public int getStock() {
-		return stock;
-	}
-	public void setStock(int stock) {
-		this.stock = stock;
 	}
 	@Transient
 	public int getSecondClassId() {
@@ -86,6 +79,13 @@ public class ItemBasic {
 	}
 	public void setFirstClass(FirstClass firstClass) {
 		this.firstClass = firstClass;
+	}
+	@Column(name = "SOTCK")
+	public int getSotck() {
+		return sotck;
+	}
+	public void setSotck(int sotck) {
+		this.sotck = sotck;
 	}
 
 }

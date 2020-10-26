@@ -17,8 +17,7 @@ public class FirstClassDAO {
 	//新增FirstClass
 	public FirstClass insert(FirstClass bean) {
 		
-		FirstClass result = session.get(FirstClass.class, bean.getName());
-		
+		FirstClass result = session.get(FirstClass.class, bean.getId());
 		if (result==null) {
 			session.save(bean);
 			return bean;

@@ -20,7 +20,7 @@ import javax.persistence.Transient;
 public class SecondClass {
 
 	private int id;
-	private Set<String> name;
+	private String name;
 	private String firstClassId;
 	private FirstClass firstClass;
 	private List<ItemBasic> itemBasics =new ArrayList<ItemBasic>();
@@ -32,10 +32,10 @@ public class SecondClass {
 		this.id = id;
 	}
 	@Column(name = "name")
-	public Set<String> getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(Set<String> name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	@Transient

@@ -14,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -69,18 +68,15 @@ public class DbDataImportServlet extends HttpServlet {
 //		int importCounter = 0;
 
 		try (FileInputStream fis = new FileInputStream(file);
-				InputStreamReader isr = new InputStreamReader(fis,CHARSET);
+				InputStreamReader isr = new InputStreamReader(fis, CHARSET);
 				BufferedReader br = new BufferedReader(isr);) {
 			CSVParser parser = CSVFormat.EXCEL.withHeader().parse(br);
 			System.out.println("File load Succsess");
 
 			List<CSVRecord> results = parser.getRecords();
-			FirstClass fcBeam = new FirstClass(); 
-			SecondClass scBean = new SecondClass();
-			
-			
+
 			for (CSVRecord csvRecord : results) {
-				
+
 				String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
 				String name = csvRecord.get("NAME");
 				String type = csvRecord.get("TYPE");
@@ -88,56 +84,14 @@ public class DbDataImportServlet extends HttpServlet {
 				String imgURL = csvRecord.get("IMG_URL");
 				String description = csvRecord.get("DESCRIPTION");
 				String secondClass = csvRecord.get("SECOND_CLASS");
-				String stockString = csvRecord.get("STOCK");
-//				System.out.println(imgURL);
 
+				
+				FirstClass fcBeam = new FirstClass();
+				SecondClass scBean = new SecondClass();
 				ItemBasic ibBean = new ItemBasic();
 				ItemInfo iiBean = new ItemInfo();
-				
 
-				//firstClass filed
-				Set<String> firstClassNameSet = fcBeam.getName();
-				firstClassNameSet.add(firstClassName);
-				fcBeam.setName(firstClassNameSet);
-				
-				//secondClass field
-				
-				Set<String> scBeanName = scBean.getName();
-				scBeanName.add(secondClass);
-				scBean.setFirstClass(fcBeam);
-				
-				ibBean.setName(name);
-				int stock = Integer.parseInt(stockString);
-				ibBean.setStock(stock);
-				iiBean.setType(type);
-				int price = Integer.parseInt(pricesString);
-				iiBean.setPrice(price);
-				
-				byte[] bytesDescption = description.getBytes(CHARSET);
-				Blob descptionBlob = Hibernate.getLobCreator(session).createBlob(bytesDescption);
-				iiBean.setDescription(descptionBlob);
-				byte[] bytesImgURL = imgURL.getBytes(CHARSET);
-				Blob imgUrlBlob = Hibernate.getLobCreator(session).createBlob(bytesImgURL);
-				iiBean.setImgUrl(imgUrlBlob);
-				
-				Set<SecondClass> secondClasses = new HashSet<SecondClass>();
-				
-				
-				Set<ItemBasic> itemBasics =new HashSet<ItemBasic>();
-				scBean.setItemBasics(itemBasics);
-				ibBean.setFirstClassId(firstClass);
-				ibBean.setItemInfo(iiBean);
-				iiBean.setItemBasic(ibBean);
-				
-				//FirstClass object
-				Set<SecondClass> secondClassesSet = fcBeam.getSecondClasses();
-				secondClassesSet.add(scBean);
-				fcBeam.setSecondClasses(secondClassesSet);
-				List<ItemBasic> itemBasicList = fcBeam.getItemBasic();
-				itemBasicList.add(ibBean);
-				fcBeam.setItemBasic(itemBasicList);
-				
-				
+				// DAO
 				FirstClassDAO firstClassDAO = new FirstClassDAO(session);
 				
 				SecondClassDAO secondClassDAO = new SecondClassDAO(session);
@@ -145,6 +99,54 @@ public class DbDataImportServlet extends HttpServlet {
 				ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
 				
 				ItemInfoDAO itemInfoDAO = new ItemInfoDAO(session);
+				
+				
+				// firstClass filed
+				fcBeam.setName(firstClassName);
+
+				// secondClass field
+				
+				scBean.setName(secondClass);
+				scBean.setFirstClass(fcBeam);
+
+				// ItemBasic field
+				ibBean.setName(name);
+//				int randomNum = (int)Math.round(Math.random() * 100 + Math.random() * 10);
+				int num = 100;
+				ibBean.setSotck(num);
+				// ItemInfo field
+				iiBean.setType(type);
+				iiBean.setPrice(Integer.parseInt(pricesString));
+				byte[] bytesDescption = description.getBytes(CHARSET);
+				Blob descptionBlob = Hibernate.getLobCreator(session).createBlob(bytesDescption);
+				iiBean.setDescription(descptionBlob);
+				byte[] bytesImgURL = imgURL.getBytes(CHARSET);
+				Blob imgUrlBlob = Hibernate.getLobCreator(session).createBlob(bytesImgURL);
+				iiBean.setImgUrl(imgUrlBlob);
+
+				// itemInfo Object
+				iiBean.setItemBasic(ibBean);
+
+				// itemBasic Object
+				ibBean.setFirstClass(fcBeam);
+				ibBean.setSecondClass(scBean);
+
+				// secondClass Object
+				List<ItemBasic> itemBasicList1 = scBean.getItemBasics();
+				itemBasicList1.add(ibBean);
+				scBean.setItemBasics(itemBasicList1);
+				scBean.setFirstClass(fcBeam);
+
+				// FirstClass object
+				Set<SecondClass> secondClassesSet = fcBeam.getSecondClasses();
+				secondClassesSet.add(scBean);
+				fcBeam.setSecondClasses(secondClassesSet);
+				List<ItemBasic> itemBasicList = fcBeam.getItemBasic();
+				itemBasicList.add(ibBean);
+				fcBeam.setItemBasic(itemBasicList);
+
+				firstClassDAO.insert(fcBeam);
+
 //				ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
 //				ItemBasic queryIB = itemBasicDAO.select(name);
 //				if(queryIB ==null){
@@ -182,9 +184,8 @@ public class DbDataImportServlet extends HttpServlet {
 	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
 
 		String routeImgNum = String.valueOf(imgNum++);
-		String localPath = "C:\\iii\\images/shopitem_UTF8.csv" + imgTitle
-				+ routeImgNum + ".jpg";
-	
+		String localPath = "C:\\iii\\images/shopitem_UTF8.csv" + imgTitle + routeImgNum + ".jpg";
+
 		// download
 		try (InputStream is = new URL(imgURL).openStream();) {
 			Files.copy(is, Paths.get(localPath), StandardCopyOption.REPLACE_EXISTING);
@@ -197,6 +198,6 @@ public class DbDataImportServlet extends HttpServlet {
 		}
 
 		return localPath;
-	}	
+	}
 
 }

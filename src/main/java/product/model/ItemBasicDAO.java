@@ -50,7 +50,7 @@ public class ItemBasicDAO {
 	public ItemBasic update(int stock) {
 		ItemBasic result = session.get(ItemBasic.class, stock);
 		if (result!=null) {
-			result.setStock(stock);
+			result.setSotck(stock);
 		}
 		return result;
 	}

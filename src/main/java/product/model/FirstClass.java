@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class FirstClass {
 	
 	private int id;
-	private Set<String> name;
+	private String name;
 	private Set<SecondClass> secondClasses = new HashSet<SecondClass>();
 	private List<ItemBasic> itemBasic=new ArrayList<ItemBasic>();
 	
@@ -31,7 +31,7 @@ public class FirstClass {
 	public FirstClass(int id) {
 		this.id = id;
 	}
-	public FirstClass(Set<String> name) {
+	public FirstClass(String name) {
 		this.name = name;
 	}
 	
@@ -45,10 +45,10 @@ public class FirstClass {
 	}
 	
 	@Column(name = "NAME")
-	public Set<String> getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(Set<String> name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "firstClass")
