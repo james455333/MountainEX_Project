@@ -2,6 +2,7 @@ package product.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ import javax.persistence.Transient;
 public class SecondClass {
 
 	private int id;
-	private String name;
+	private Set<String> name;
 	private String firstClassId;
 	private FirstClass firstClass;
 	private List<ItemBasic> itemBasics =new ArrayList<ItemBasic>();
@@ -31,10 +32,10 @@ public class SecondClass {
 		this.id = id;
 	}
 	@Column(name = "name")
-	public String getName() {
+	public Set<String> getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(Set<String> name) {
 		this.name = name;
 	}
 	@Transient

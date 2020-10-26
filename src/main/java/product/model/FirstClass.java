@@ -1,5 +1,6 @@
 package product.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +22,7 @@ public class FirstClass {
 	private int id;
 	private Set<String> name;
 	private Set<SecondClass> secondClasses = new HashSet<SecondClass>();
-	private List<ItemBasic> itemBasic;
+	private List<ItemBasic> itemBasic=new ArrayList<ItemBasic>();
 	
 	public FirstClass() {
 		
@@ -30,7 +31,7 @@ public class FirstClass {
 	public FirstClass(int id) {
 		this.id = id;
 	}
-	public FirstClass(String name) {
+	public FirstClass(Set<String> name) {
 		this.name = name;
 	}
 	

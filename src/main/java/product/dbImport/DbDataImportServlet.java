@@ -75,9 +75,13 @@ public class DbDataImportServlet extends HttpServlet {
 			System.out.println("File load Succsess");
 
 			List<CSVRecord> results = parser.getRecords();
-
+			FirstClass fcBeam = new FirstClass(); 
+			SecondClass scBean = new SecondClass();
+			
+			
 			for (CSVRecord csvRecord : results) {
 				
+				String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
 				String name = csvRecord.get("NAME");
 				String type = csvRecord.get("TYPE");
 				String pricesString = csvRecord.get("PRICE");
@@ -85,19 +89,23 @@ public class DbDataImportServlet extends HttpServlet {
 				String description = csvRecord.get("DESCRIPTION");
 				String secondClass = csvRecord.get("SECOND_CLASS");
 				String stockString = csvRecord.get("STOCK");
-				String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
 //				System.out.println(imgURL);
 
-				FirstClass fcBeam = new FirstClass(); 
-				
-				SecondClass scBean = new SecondClass();
 				ItemBasic ibBean = new ItemBasic();
 				ItemInfo iiBean = new ItemInfo();
-
 				
-				fcBeam.setName(firstClassName);
-				fcBeam.setSecondClasses(secondClasses);
-				scBean.setName(secondClass);
+
+				//firstClass filed
+				Set<String> firstClassNameSet = fcBeam.getName();
+				firstClassNameSet.add(firstClassName);
+				fcBeam.setName(firstClassNameSet);
+				
+				//secondClass field
+				
+				Set<String> scBeanName = scBean.getName();
+				scBeanName.add(secondClass);
+				scBean.setFirstClass(fcBeam);
+				
 				ibBean.setName(name);
 				int stock = Integer.parseInt(stockString);
 				ibBean.setStock(stock);
@@ -120,6 +128,14 @@ public class DbDataImportServlet extends HttpServlet {
 				ibBean.setFirstClassId(firstClass);
 				ibBean.setItemInfo(iiBean);
 				iiBean.setItemBasic(ibBean);
+				
+				//FirstClass object
+				Set<SecondClass> secondClassesSet = fcBeam.getSecondClasses();
+				secondClassesSet.add(scBean);
+				fcBeam.setSecondClasses(secondClassesSet);
+				List<ItemBasic> itemBasicList = fcBeam.getItemBasic();
+				itemBasicList.add(ibBean);
+				fcBeam.setItemBasic(itemBasicList);
 				
 				
 				FirstClassDAO firstClassDAO = new FirstClassDAO(session);
