@@ -21,8 +21,19 @@ public class FirstClass {
 	private String name;
 	private Set<SecondClass> secondClasses = new HashSet<SecondClass>();
 	
+	public FirstClass() {
+		
+	}
+	
+	public FirstClass(int id) {
+		this.id = id;
+	}
+	public FirstClass(String name) {
+		this.name = name;
+	}
+	
 	@Id@Column(name = "ID")
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
