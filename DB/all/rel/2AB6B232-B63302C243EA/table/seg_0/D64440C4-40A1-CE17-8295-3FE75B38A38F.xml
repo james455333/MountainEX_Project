@@ -15,11 +15,20 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>FB080B77-5949-35B7-8BA8-2E005EA106FF</importedID>
-<use>0</use>
+<sourceType>Manual</sourceType>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>9CB8B398-6760-E4B9-28C8-71BA6DDF50D0</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>300</autoIncrementStartWith>
+<autoIncrementMinValue>300</autoIncrementMinValue>
+<autoIncrementMaxValue>399</autoIncrementMaxValue>
 <autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
 </Column>
 <Column name="name" id="EF5C3142-DECE-E5CB-055D-8FD011B332D1">
 <sourceDDLFile>all.ddl</sourceDDLFile>

@@ -4,6 +4,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -14,8 +16,9 @@ public class NationalPark {
 	
 	@Id
 	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "NAME")
+	@Column(name = "NAME", unique = true)
 	private String name;
 	@OneToOne(fetch = FetchType.LAZY , mappedBy = "national_park" , cascade = CascadeType.ALL)
 	private RouteBasic routeBasic;

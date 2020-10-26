@@ -40,7 +40,7 @@ total : 5		  seqName			title: 6      	incerment   digits	cache
 ----------------------------------------------------------------------
 first_class		  seq_firstclass	600~699			+1			3		none
 second_class	  seq_second		6000~6999		+1			4		none
-item_basic		  seq_shopitem		600000~619999	+1			6		10
+item_basic		  seq_shopitem		6000000~6199999	+1			7		10
 orders			  seq_order			620000~699999	+1			6		10
 orderitem		  seq_orderitems	6000000~6999999	+1			7		10
 ----------------------------------------------------------------------

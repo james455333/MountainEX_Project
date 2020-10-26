@@ -69,4 +69,18 @@ public class NationalParkHibernateDAO implements NationalParkDAO {
 		return null;
 	}
 
+	@Override
+	public NationalPark select(String npName) {
+		String hql = "From NationalPark where Name like '";
+		hql = hql.concat(npName+"'");
+		Query<NationalPark> query = session.createQuery(hql, NationalPark.class);
+		List<NationalPark> list = query.list();
+		if(list.size()!=0) {
+			return list.get(0);
+		}else {
+			return null;
+		}
+		
+	}
+
 }

@@ -4,9 +4,9 @@
 
 	<Resource name="Jdbc/HibernateService" type="javax.sql.DataSource"
 	auth="Container"
-	username="tester1" password="test1"
+	username="tester1" password="test"
 	driverClassName="oracle.jdbc.OracleDriver"
-	url="jdbc:oracle:thin:@172.16.39.60:1521/xepdb1"
+	url="jdbc:oracle:thin:@localhost:1521/xepdb1"
 	maxTotal="20"
 	maxIdle="10"
 	maxWaitMillis="-1"/>

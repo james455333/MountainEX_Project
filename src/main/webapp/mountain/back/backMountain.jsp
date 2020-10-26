@@ -35,10 +35,7 @@
 		</div>
 		<div id="controller">
 			<div>
-				<form action="">
-					<input type="search" name="searchInsert">
-					<input type="button" src="#" value="新增">		
-				</form>
+				<input type="button" src="#" value="新增">		
 			</div>
 			<div>
 				<form action="">

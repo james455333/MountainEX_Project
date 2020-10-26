@@ -18,6 +18,10 @@
     	<property name="hibernate.show_sql">true</property>
     	<property name="hibernate.format_sql">true</property>
 		<mapping class="mountain.mountainList.model.RouteSummary"/>
+		<mapping class="mountain.mountainList.model.NationalPark"/>
+		<mapping class="mountain.mountainList.model.RouteBasic"/>
+		<mapping class="mountain.mountainList.model.RouteInfo"/>
+		
 		
     </session-factory>
 </hibernate-configuration>

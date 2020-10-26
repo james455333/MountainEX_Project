@@ -15,11 +15,20 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>FC755D02-2453-D61A-A5EB-7ECDCB5C696B</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>466754EF-0E78-0A42-4E8D-64700CF12377</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>1000000</autoIncrementStartWith>
+<autoIncrementMinValue>1000000</autoIncrementMinValue>
+<autoIncrementMaxValue>1999999</autoIncrementMaxValue>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>10</autoIncrementCache>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
 </Column>
 <Column name="account" id="B75E67EB-E947-F166-3E2C-C8F2C127CCBC">
 <sourceDDLFile>all.ddl</sourceDDLFile>
@@ -75,9 +84,9 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>BBF31DA3-094F-7EBC-D6F9-569912D543B2</importedID>
-<use>0</use>
-<logicalDatatype>LOGDT035</logicalDatatype>
-<domain>C7604F41-9F5D-2010-4B54-3E7EBD53679A</domain>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>

@@ -15,11 +15,19 @@
 <createdTime>2020-10-23 13:41:06 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>2D6BEEA3-58F7-76C7-6C87-9046B9097AD7</importedID>
-<use>0</use>
+<sourceType>System</sourceType>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>B1D1D522-99A4-8943-7517-3922D03DE61D</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementStartWith>3000</autoIncrementStartWith>
+<autoIncrementMinValue>3000</autoIncrementMinValue>
+<autoIncrementMaxValue>3999</autoIncrementMaxValue>
 <autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
 </Column>
 <Column name="national_park_id" id="382E4F83-636D-7345-EAE8-8E935BDD4819">
 <sourceDDLFile>all.ddl</sourceDDLFile>
@@ -27,9 +35,10 @@
 <createdTime>2020-10-23 13:41:06 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>4D82CB4B-12FA-9CD4-9878-C2D22ED6ECBF</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>9CB8B398-6760-E4B9-28C8-71BA6DDF50D0</domain>
+<dataTypePrecision>3</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>

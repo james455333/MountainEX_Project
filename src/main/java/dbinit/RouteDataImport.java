@@ -12,12 +12,33 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+import mountain.mountainList.service.NationalParkHibernateService;
+
 public class RouteDataImport {
 
 	public static void main(String[] args) {
 		
-		
-		
+		File file = new File("C:\\±MÃD\\MountainEX_Project/Mountain_UTF8.csv");
+		try {
+			CSVParser parser = csvRecords(file);
+			List<CSVRecord> results = parser.getRecords();
+			for (CSVRecord csvRecord : results) {
+				String name = csvRecord.get("name");
+				String description = csvRecord.get("description");
+				String advice = csvRecord.get("advice");
+				String traffic = csvRecord.get("traffic");
+				String npName = csvRecord.get("npName");
+				String imgURL = csvRecord.get("img_url");
+				
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
@@ -25,15 +46,14 @@ public class RouteDataImport {
 	}
 
 	
-	public static List<CSVRecord> csvRecords(File file) throws Exception {
+	public static CSVParser csvRecords(File file) throws Exception {
 		try (
 			FileInputStream fis = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fis);
 			BufferedReader br = new BufferedReader(isr);
 			){
 			CSVParser parser = CSVFormat.EXCEL.withHeader().parse(br);
-			List<CSVRecord> results = parser.getRecords();						
-			return results;
+			return parser;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {

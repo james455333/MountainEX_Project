@@ -17,7 +17,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "route_info")
 public class RouteInfo {
 	
-	@GenericGenerator( name = "rbidG1", strategy = "foregin", parameters = @Parameter( name = "property", value = "route_basic"))
+	@GenericGenerator( name = "rbidG1", strategy = "foreign", parameters = @Parameter( name = "property", value = "route_basic"))
 	@Id
 	@Column( name = "ROUTE_BASIC_ID")
 	@GeneratedValue(generator = "rbidG1")
@@ -37,9 +37,15 @@ public class RouteInfo {
 	
 	@OneToOne( fetch = FetchType.LAZY )
 	@PrimaryKeyJoinColumn
-	private RouteBasic routeBasic;
+	private RouteBasic route_basic;
 	
 	
+	public RouteBasic getRoute_basic() {
+		return route_basic;
+	}
+	public void setRoute_basic(RouteBasic route_basic) {
+		this.route_basic = route_basic;
+	}
 	public String getName() {
 		return name;
 	}
@@ -70,12 +76,7 @@ public class RouteInfo {
 	public void setAdvice(Blob advice) {
 		this.advice = advice;
 	}
-	public RouteBasic getRouteBasic() {
-		return routeBasic;
-	}
-	public void setRouteBasic(RouteBasic routeBasic) {
-		this.routeBasic = routeBasic;
-	}
+
 	public int getRbPK() {
 		return rbPK;
 	}

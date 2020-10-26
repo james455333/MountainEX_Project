@@ -43,4 +43,9 @@ public class NationalParkHibernateService implements NationalParkService {
 		return npHibDAO.update(npBean);
 	}
 
+	@Override
+	public NationalPark select(String npName) {
+		return npHibDAO.select(npName);
+	}
+
 }

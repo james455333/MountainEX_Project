@@ -11,6 +11,8 @@ public interface NationalParkService {
 	
 	public NationalPark select(int npid);
 	
+	public NationalPark select(String npName);
+	
 	public List<NationalPark> selectAll();
 	
 	public boolean delete(int npid);

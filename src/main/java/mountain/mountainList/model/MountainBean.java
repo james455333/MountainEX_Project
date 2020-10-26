@@ -3,13 +3,13 @@ package mountain.mountainList.model;
 
 
 public class MountainBean {
-	
-	String name ;
-	String description;
-	String advice; 
-	String traffic;
-	String npName;
-	String imgUrl;
+	private int seqno;
+	private String name ;
+	private String description;
+	private String advice; 
+	private String traffic;
+	private String npName;
+	private String imgUrl;
 	public String getName() {
 		return name;
 	}
@@ -45,6 +45,12 @@ public class MountainBean {
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+	public int getSeqno() {
+		return seqno;
+	}
+	public void setSeqno(int seqno) {
+		this.seqno = seqno;
 	}
 	
 

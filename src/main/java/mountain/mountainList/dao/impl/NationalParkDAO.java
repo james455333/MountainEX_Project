@@ -10,6 +10,7 @@ public interface NationalParkDAO {
 	public NationalPark insert(NationalPark npBean) ;
 	
 	public NationalPark select(int npid);
+	public NationalPark select(String npName);
 	
 	public List<NationalPark> selectAll();
 	

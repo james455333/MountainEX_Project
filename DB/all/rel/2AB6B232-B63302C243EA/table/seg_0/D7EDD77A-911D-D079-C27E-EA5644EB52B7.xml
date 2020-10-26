@@ -15,11 +15,19 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>4FD629FA-D784-A098-8C50-C77022AAADE0</importedID>
-<use>0</use>
-<logicalDatatype>LOGDT035</logicalDatatype>
-<domain>C7604F41-9F5D-2010-4B54-3E7EBD53679A</domain>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>100</autoIncrementStartWith>
+<autoIncrementIncrementBy>10</autoIncrementIncrementBy>
+<autoIncrementMinValue>100</autoIncrementMinValue>
+<autoIncrementMaxValue>190</autoIncrementMaxValue>
 <autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
 <notNullConstraintName>nnc_memberinfo_status_no</notNullConstraintName>
 </Column>
 <Column name="name" id="C1469686-6DFA-9601-0AF4-D206CD31EAA7">
