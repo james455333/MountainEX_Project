@@ -1,5 +1,7 @@
 package product.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,8 +17,8 @@ public class ItemInfo {
 	private int itemBasicSeqno;
 	private String type;
 	private int price;
-	private String imgUrl;
-	private String description;
+	private Blob imgUrl;
+	private Blob description;
 	private ItemBasic itemBasic;
 	
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name="property", value = "books"))
@@ -43,17 +45,17 @@ public class ItemInfo {
 		this.price = price;
 	}
 	@Column(name = "IMG_URL")
-	public String getImgUrl() {
+	public Blob getImgUrl() {
 		return imgUrl;
 	}
-	public void setImgUrl(String imgUrl) {
+	public void setImgUrl(Blob imgUrl) {
 		this.imgUrl = imgUrl;
 	}
 	@Column(name = "DESCRIPTION")
-	public String getDescription() {
+	public Blob getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+	public void setDescription(Blob description) {
 		this.description = description;
 	}
 	
