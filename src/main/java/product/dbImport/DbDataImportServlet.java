@@ -57,6 +57,7 @@ public class DbDataImportServlet extends HttpServlet {
 		Session session = factory.getCurrentSession();
 
 		File file = new File("C:\\iii\\csv/shopitem_UTF8.csv");
+//		File file = new File("C:\\iii\\csv/shopitem_MS950.csv");
 		importDataToDB(file, session);
 
 	}
@@ -82,6 +83,7 @@ public class DbDataImportServlet extends HttpServlet {
 				String type = csvRecord.get("TYPE");
 				String pricesString = csvRecord.get("PRICE");
 				String imgURL = csvRecord.get("IMG_URL");
+				System.out.println(imgURL);
 				String description = csvRecord.get("DESCRIPTION");
 				String secondClass = csvRecord.get("SECOND_CLASS");
 
@@ -184,7 +186,7 @@ public class DbDataImportServlet extends HttpServlet {
 	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
 
 		String routeImgNum = String.valueOf(imgNum++);
-		String localPath = "C:\\iii\\images/shopitem_UTF8.csv" + imgTitle + routeImgNum + ".jpg";
+		String localPath = "C:\\iii\\images/" + imgTitle + routeImgNum + ".jpg";
 
 		// download
 		try (InputStream is = new URL(imgURL).openStream();) {
