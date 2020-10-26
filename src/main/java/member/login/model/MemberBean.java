@@ -132,8 +132,8 @@ public class MemberBean {
 	}
 	
 	public MemberBean(int memberId, String account, String password, 
-			String name, String address, String email, String tel, String exp, 
-			int groupId, double totalAmt, double unpaid_amount, Blob memberImage) {
+			String name, String address, String email, String tel, String exp 
+			) {
 		
 		this.memberId = memberId;
 		this.account = account;
@@ -143,10 +143,6 @@ public class MemberBean {
 		this.email = email;
 		this.tel = tel;
 		this.exp = exp;
-		this.groupId = groupId;
-		this.totalAmt = totalAmt;
-		this.unpaid_amount = unpaid_amount;
-		this.memberId = memberId;
 		
 	}
 	

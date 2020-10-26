@@ -43,6 +43,7 @@ public class MemberInfoUpdateServlet extends HttpServlet {
 		Session s1 = factory.getCurrentSession();
 		
 		HttpSession s2 = request.getSession(false);
+		int memberId = (Integer.parseInt(request.getParameter("memberId")));
 		String account = request.getParameter("userId");
 		String groupId = request.getParameter("groupId");
 		
@@ -53,7 +54,9 @@ public class MemberInfoUpdateServlet extends HttpServlet {
 			
 			MemberBean mb = new MemberBean();
 			memberInfoDAO infoDAO = new memberInfoJDBCDAO(s1);
-			List<MemberBean> listMbInfo = infoDAO.listMbInfo();
+			
+			
+			mb.setMemberId(memberId);
 			
 			
 			mb.setAccount(account);
@@ -62,41 +65,43 @@ public class MemberInfoUpdateServlet extends HttpServlet {
 //			mb.setMemberId(memberId);
 //			System.out.println(memberId);
 
-			String mb_password = request.getParameter("password");
-			mb.setPassword(mb_password);
+			String password = request.getParameter("password");
+			mb.setPassword(password);
 			System.out.println("C");
 			
-			String mb_name = request.getParameter("name");
-			mb.setName(mb_name);
+			String name = request.getParameter("name");
+			mb.setName(name);
 			System.out.println("D");
 			
-			String mb_address = request.getParameter("address");
-			mb.setAddress(mb_address);
+			String address = request.getParameter("address");
+			mb.setAddress(address);
 			System.out.println("E");
 
-			String mb_email = request.getParameter("email");
-			mb.setEmail(mb_email);
+			String email = request.getParameter("email");
+			mb.setEmail(email);
 			System.out.println("F");
 			
-			String mb_tel = request.getParameter("tel");
-			mb.setTel(mb_tel);
+			String tel = request.getParameter("tel");
+			mb.setTel(tel);
 			System.out.println("G");
 			
-			String mb_exp = request.getParameter("exp");
-			mb.setExp(mb_exp);
+			String exp = request.getParameter("exp");
+			mb.setExp(exp);
 			System.out.println("H");
 			
 			mb.setGroupId(Integer.parseInt(groupId));
 			System.out.println(groupId);
 			
-			 listMbInfo.add(mb);
-			 infoDAO.updateData(mb);
-			 System.out.println("I");
+//			MemberBean mb2 = new MemberBean(account, password, name, address, email, tel, exp);
+			
+			
+			infoDAO.updateData(memberId, mb);
+			System.out.println("I");
 			 
-			 //重新設定session中的MemberBean
-			 s2.setAttribute("MemberBean", mb);
+			//重新設定session中的MemberBean
+			s2.setAttribute("MemberBean", mb);
 			 
-			 response.sendRedirect(request.getContextPath() + "/member/info/memberInfo.jsp");
+			response.sendRedirect(request.getContextPath() + "/member/info/memberInfo.jsp");
 
 		}
 			

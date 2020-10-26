@@ -8,6 +8,6 @@ public interface memberInfoDAO {
 	
 	public List<MemberBean> listMbInfo();
 	
-	public void updateData(MemberBean listUpdate);
+	public MemberBean updateData(int memberId, MemberBean mb);
 
 }

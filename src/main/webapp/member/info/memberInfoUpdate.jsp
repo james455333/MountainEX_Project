@@ -32,7 +32,12 @@
 				<fieldset>
 
 					<h2>${MemberBean.name}的個人資料</h2>
-					
+						
+						<div style="display:none">
+							<label>會員編號</label>
+							<input type="text" id="memberId" name="memberId" readonly="readonly" value="${MemberBean.memberId}"/>
+						</div>
+						
 						<label>帳號：</label>
 						<input type="text" id="userId" name="userId" readonly="readonly" value="${MemberBean.account}" />
 						<br/>

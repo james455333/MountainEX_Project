@@ -66,55 +66,39 @@ public class memberInfoJDBCDAO implements memberInfoDAO{
 		
 	}
 
-	
-	
+
 	//修改會員資料
 	@Override
-	public void updateData(MemberBean listUpdate) {
-		MemberBean result = session.get(MemberBean.class, listUpdate.getMemberId());
+	public MemberBean updateData(int memberId, MemberBean mb) {
+		MemberBean result = session.get(MemberBean.class, memberId);
 		if(result != null) {
-			result.setPassword(listUpdate.getPassword());
-			result.setName(listUpdate.getName());
-			result.setAddress(listUpdate.getAddress());
-			result.setEmail(listUpdate.getEmail());
-			result.setTel(listUpdate.getTel());
-			result.setExp(listUpdate.getExp());
+			result.setPassword(mb.getPassword());
+			result.setName(mb.getName());
+			result.setAddress(mb.getAddress());
+			result.setEmail(mb.getEmail());
+			result.setTel(mb.getTel());
+			result.setExp(mb.getExp());
 		}
-
-
-	
-
-	
-	
-	
-	
-		
-		
-		
-		
-		
-		
-//		try (Connection connection = ds.getConnection();
-//			 PreparedStatement pstmt = connection.prepareStatement("update member set password = ?, name = ?, address = ?, email = ?, tel = ?, exp = ? where memberId = ?");
-//				){
-//			
-//			pstmt.setString(1, listUpdate.getPassword());
-//			pstmt.setString(2, listUpdate.getName());
-//			pstmt.setString(3, listUpdate.getAddress());
-//			pstmt.setString(4, listUpdate.getEmail());
-//			pstmt.setString(5, listUpdate.getTel());
-//			pstmt.setString(6, listUpdate.getExp());
-//			pstmt.setString(7, listUpdate.getMemberId());
-//			
-//			pstmt.executeUpdate();
-//			pstmt.clearParameters();
-//			
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-		
+		return result;
 	}
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+	
+
+	
+	
+	
+	
 
 	
 	
