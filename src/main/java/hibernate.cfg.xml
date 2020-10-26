@@ -19,5 +19,11 @@
     	<property name="hibernate.format_sql">true</property>
 		<mapping class="mountain.mountainList.model.RouteSummary"/>
 		
+		<mapping class="product.model.FirstClass"/>
+		<mapping class="product.model.SecondClass"/>
+		<mapping class="product.model.ItemBasic"/>
+		<mapping class="product.model.ItemInfo"/>
+		
+		
     </session-factory>
 </hibernate-configuration>

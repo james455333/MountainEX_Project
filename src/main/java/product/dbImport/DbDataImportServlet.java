@@ -3,10 +3,16 @@ package product.dbImport;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
 import java.util.HashSet;
 import java.util.List;
@@ -28,11 +34,11 @@ import org.hibernate.SessionFactory;
 import product.model.FirstClass;
 import product.model.FirstClassDAO;
 import product.model.ItemBasic;
+import product.model.ItemBasicDAO;
 import product.model.ItemInfo;
 import product.model.SecondClass;
 import product.model.SecondClassDAO;
 import util.HibernateUtil;
-
 
 @WebServlet("/product/DbDataImportServlet")
 public class DbDataImportServlet extends HttpServlet {
@@ -40,39 +46,26 @@ public class DbDataImportServlet extends HttpServlet {
 	private static String imgTitle = "imgShop";
 	private static int imgNum = 1;
 	private static final String CHARSET = "UTF-8";
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 //		String path1 = "C:\\imges/imgShop1.jpg";
 //		path1 = path1.concat(imgTitle);
 //		String imgNUMString = String.valueOf(imgNum++);
 //		path1 = path1.concat(imgNUMString + ".jpg");
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
-		
-		File file = new File("C:\\");
-//		FileInputStream fis = new FileInputStream(file);
-//		InputStreamReader isr = new InputStreamReader(fis);
-//		CSVParser parse = CSVFormat.EXCEL.withHeader().parse(isr);
-//		List<CSVRecord> records = parse.getRecords();
+
+		File file = new File("C:\\iii\\csv/shopitem_UTF8.csv");
 		importDataToDB(file, session);
-		
+
 	}
-		
-//		for (CSVRecord csvRecord : records) {
-//			String name = csvRecord.get("NAME");
-//			String type = csvRecord.get("TYPE");
-//			String price = csvRecord.get("PRICE");
-//			String secondClass = csvRecord.get("SECOND_CLASS");
-//			String stock = csvRecord.get("STOCK");
-//			String firstClassName = csvRecord.get("FIRST_CLASS_NAME");
-//			
-//		}
-		
-		
+
 //		String url = "";
 //		InputStream is = new URL(url).openStream();
 	public static void importDataToDB(File file, Session session) {
 
-		int importCounter = 0;
+//		int importCounter = 0;
 
 		try (FileInputStream fis = new FileInputStream(file);
 				InputStreamReader isr = new InputStreamReader(fis,CHARSET);
@@ -124,35 +117,27 @@ public class DbDataImportServlet extends HttpServlet {
 				iiBean.setItemBasic(ibBean);
 				
 				
-				
-//				rBBean.setNational_park(npBean);
-//				npBean.setRouteBasic(rBBean);
-//				rBBean.setRouteInfo(rIBean);
-//				rIBean.setRoute_basic(rBBean);
-//				NationalParkService npService = new NationalParkHibernateService(session);
-				FirstClassDAO firstClassDAO = new FirstClassDAO(session);
-//				NationalPark queryNP = npService.select(npName);
-				FirstClass queryFC = firstClassDAO.select(firstClassName);
-				if(queryFC !=null){
+//				ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
+//				ItemBasic queryIB = itemBasicDAO.select(name);
+//				if(queryIB ==null){
 //					RouteBasicService rBService = new RouteBasicHibernateService(session);
-					SecondClassDAO secondClassDAO = new SecondClassDAO(session);
 //					rBBean.setNational_park(queryNP);
-					scBean.set
-					RouteBasic insertRB = rBService.insert(rBBean);
-					if(insertRB == null){
-						System.out.println("第" + (++importCounter) + "筆資料為空");
-					}else{
-						System.out.println("第" + (++importCounter) + "筆 : \t" + rIBean.getName());
-					}
-				} else{
-					NationalPark insertNP = npService.insert(npBean);
-					if( insertNP == null){
-						System.out.println("第" + (++importCounter) + "筆資料為空");
-					}else {
-						System.out.println("第" + (++importCounter) + "筆 : \t" + rIBean.getName());
-					}
-				}
-				
+//					RouteBasic insertRB = rBService.insert(rBBean);
+//					if(insertRB == null){
+//						System.out.println("第" + (++importCounter) + "筆資料為空");
+//					}else{
+//						System.out.println("第" + (++importCounter) + "筆 : \t" + rIBean.getName());
+//					}
+//				} else{
+//					NationalPark insertNP = npService.insert(npBean);
+//					if( insertNP == null){
+//						System.out.println("第" + (++importCounter) + "筆資料為空");
+//					}else {
+//						System.out.println("第" + (++importCounter) + "筆 : \t" + rIBean.getName());
+//					}
+//				}
+//				
+				downloadGetLocalPath(imgURL);
 
 			}
 		} catch (FileNotFoundException e) {
@@ -166,30 +151,24 @@ public class DbDataImportServlet extends HttpServlet {
 
 	}
 
-//	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
-//
-//		String routeImgNum = String.valueOf(RouteImgNum++);
-//		String localPath = System.getProperty("user.dir")+"\\src\\main\\webapp\\mountain\\images/" + RouteImgTitle
-//				+ routeImgNum + ".jpg";
-//	
-//		// download
-//		try (InputStream is = new URL(imgURL).openStream();) {
-//			Files.copy(is, Paths.get(localPath), StandardCopyOption.REPLACE_EXISTING);
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (MalformedURLException e1) {
-//			e1.printStackTrace();
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//
-//		return localPath;
-//	}	
-		
-		
-		
-		
-		
+	public static String downloadGetLocalPath(String imgURL) throws UnsupportedEncodingException {
+
+		String routeImgNum = String.valueOf(imgNum++);
+		String localPath = "C:\\iii\\images/shopitem_UTF8.csv" + imgTitle
+				+ routeImgNum + ".jpg";
 	
+		// download
+		try (InputStream is = new URL(imgURL).openStream();) {
+			Files.copy(is, Paths.get(localPath), StandardCopyOption.REPLACE_EXISTING);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		return localPath;
+	}	
 
 }

@@ -26,7 +26,15 @@ public class ItemBasicDAO {
 	}
 	//查詢
 	public ItemBasic select(String name) {
-		return session.get(ItemBasic.class, name);
+		String hql = "From item_basic where name like '";
+		hql = hql.concat(name+"'");
+		Query<ItemBasic> query = session.createQuery(hql, ItemBasic.class);
+		List<ItemBasic> list = query.list();
+		if(list.size()!=0) {
+			return list.get(0);
+		}else {
+			return null;
+		}
 	}
 	//
 	public ItemBasic select(int id) {

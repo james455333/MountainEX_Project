@@ -1,0 +1,78 @@
+CREATE TABLE first_class (
+    id    NUMBER(3)
+        GENERATED ALWAYS AS IDENTITY ( START WITH 600 MINVALUE 600 MAXVALUE 699 NOCACHE ORDER )
+    NOT NULL,
+    name  VARCHAR2(150)
+)
+LOGGING;
+
+ALTER TABLE first_class ADD CONSTRAINT first_class_pk PRIMARY KEY ( id );
+
+CREATE TABLE item_basic (
+    seqno            NUMBER(6)
+        GENERATED ALWAYS AS IDENTITY ( START WITH 6000000 MINVALUE 6000000 MAXVALUE 6199999 CACHE 10 ORDER )
+    NOT NULL,
+    name             NVARCHAR2(150) NOT NULL,
+    sotck            NUMBER(5) NOT NULL,
+    second_class_id  NUMBER(4) NOT NULL,
+    first_class_id   NUMBER(3) NOT NULL
+)
+
+logging;
+
+CREATE INDEX itembasic__idxv1 ON
+    item_basic (
+        seqno
+    ASC,
+        sotck
+    ASC )
+        LOGGING;
+
+ALTER TABLE item_basic ADD CONSTRAINT shopitem_pk PRIMARY KEY ( seqno );
+
+CREATE TABLE item_info (
+    item_basic_seqno  NUMBER(6) NOT NULL,
+    type              VARCHAR2(100),
+    price             NUMBER(7),
+    img_url           BLOB,
+    description       BLOB
+)
+
+logging;
+
+ALTER TABLE item_info ADD CONSTRAINT allitem_pk PRIMARY KEY ( item_basic_seqno );
+
+CREATE TABLE second_class (
+    id              NUMBER(4)
+        GENERATED ALWAYS AS IDENTITY ( START WITH 6000 MINVALUE 6000 MAXVALUE 6999 NOCACHE ORDER )
+    NOT NULL,
+    name            NVARCHAR2(150),
+    first_class_id  NUMBER(3) NOT NULL
+)
+
+logging;
+
+ALTER TABLE second_class ADD CONSTRAINT second_class_pk PRIMARY KEY ( id );
+
+ALTER TABLE item_info
+    ADD CONSTRAINT item_info_item_basic_fk FOREIGN KEY ( item_basic_seqno )
+        REFERENCES item_basic ( seqno )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
+ALTER TABLE item_basic
+    ADD CONSTRAINT itembasic_first_class_fk FOREIGN KEY ( first_class_id )
+        REFERENCES first_class ( id )
+    NOT DEFERRABLE;
+
+ALTER TABLE item_basic
+    ADD CONSTRAINT itembasic_second_class_fk FOREIGN KEY ( second_class_id )
+        REFERENCES second_class ( id )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
+
+ALTER TABLE second_class
+    ADD CONSTRAINT second_class_first_class_fk FOREIGN KEY ( first_class_id )
+        REFERENCES first_class ( id )
+            ON DELETE CASCADE
+    NOT DEFERRABLE;
