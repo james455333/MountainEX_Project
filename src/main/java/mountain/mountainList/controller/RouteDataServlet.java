@@ -43,49 +43,56 @@ public class RouteDataServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		List<String> errorMsg = new ArrayList<String>();
-		request.setAttribute("errorMsg", errorMsg);
+//		request.setAttribute("errorMsg", errorMsg);
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
 		String order = request.getParameter("mOrder");
-		
-		out.write(order+"<br>");
-		if(order.equals("selectAll")) {
-			RouteInfoService rIService = new RouteInfoHibernateService(session);
-			List<RouteInfo> rIBean = rIService.selectAll();
-			List<MountainBean> showList = new ArrayList<MountainBean>();
-			
-			for (RouteInfo routeInfo : rIBean) {
-				session = factory.getCurrentSession();
-				MountainBean mountainBean = new MountainBean();
-				mountainBean.setSeqno(routeInfo.getRbPK());
-				mountainBean.setName(routeInfo.getName());
-				Blob descpBlob = routeInfo.getDescription();
-				String description = blobToString(descpBlob, request,response);
-				mountainBean.setDescription(description);
-				Blob adviceBlob = routeInfo.getAdvice();
-				String advice = blobToString(adviceBlob, request, response);
-				mountainBean.setAdvice(advice);
-				Blob traBlob = routeInfo.getTraffic();
-				String traffic = blobToString(traBlob, request, response);
-				mountainBean.setTraffic(traffic);
-				Blob imgUrlBlob = routeInfo.getImgUrl();
-				String imgURL = blobToString(imgUrlBlob, request, response);
-				mountainBean.setImgUrl(imgURL);
-				RouteBasic routeBasic = routeInfo.getRoute_basic();
-				NationalPark nationalPark = routeBasic.getNational_park();
-				String nPName = nationalPark.getName();
-				mountainBean.setNpName(nPName);
-				showList.add(mountainBean);
-				out.write(routeInfo.getName()+"<br>");
-				out.write(description + "<br>");
-			}
-//			request.setAttribute("mountainBean", showList);
-//			request.getRequestDispatcher("/mountain/back/backMountain.jsp").forward(request, response);
-//			return;
-					
-					
+		if(order!=null) {
+			if(order.equals("selectAll")) {
+				RouteInfoService rIService = new RouteInfoHibernateService(session);
+				List<RouteInfo> rIBean = rIService.selectAll();
+				List<MountainBean> showList = new ArrayList<MountainBean>();
 				
-			}
+				for (RouteInfo routeInfo : rIBean) {
+					session = factory.getCurrentSession();
+					MountainBean mountainBean = new MountainBean();
+					mountainBean.setSeqno(routeInfo.getRbPK());
+					mountainBean.setName(routeInfo.getName());
+					Blob descpBlob = routeInfo.getDescription();
+					String description = blobToString(descpBlob, request,response);
+					mountainBean.setDescription(description);
+					Blob adviceBlob = routeInfo.getAdvice();
+					String advice = blobToString(adviceBlob, request, response);
+					mountainBean.setAdvice(advice);
+					Blob traBlob = routeInfo.getTraffic();
+					String traffic = blobToString(traBlob, request, response);
+					mountainBean.setTraffic(traffic);
+					Blob imgUrlBlob = routeInfo.getImgUrl();
+					String imgURL = blobToString(imgUrlBlob, request, response);
+					mountainBean.setImgUrl(imgURL);
+					RouteBasic routeBasic = routeInfo.getRoute_basic();
+					NationalPark nationalPark = routeBasic.getNational_park();
+					String nPName = nationalPark.getName();
+					mountainBean.setNpName(nPName);
+					showList.add(mountainBean);
+					out.write(routeInfo.getName()+"<br>");
+					out.write(description + "<br>");
+				}
+//				request.setAttribute("mountainBean", showList);
+//				request.getRequestDispatcher("/mountain/back/backMountain.jsp").forward(request, response);
+//				return;
+						
+						
+					
+				}
+		}else {
+			
+			errorMsg.add("指令錯誤，請重新輸入");
+			request.setAttribute("errorMsg", errorMsg);
+			request.getRequestDispatcher("/mountain/back/backMountain.jsp").forward(request, response);
+			return;
+		}
+		
 
 	
 

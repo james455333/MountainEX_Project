@@ -6,7 +6,7 @@
 <ownerDesignName>all</ownerDesignName>
 <importedID>A005CCD8-D7E6-0194-4953-146EDA841EA4</importedID>
 <referredTableLongName>route_basic</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>99431341-3994-B66C-8A5B-D3A791204002</referredTableID>
 <keyObject>66FF2B29-B2DE-C123-3E21-9B1C5CE51F4E</keyObject>
 <referredKeyID>66FF2B29-B2DE-C123-3E21-9B1C5CE51F4E</referredKeyID>

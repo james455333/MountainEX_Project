@@ -6,7 +6,7 @@
 <ownerDesignName>all</ownerDesignName>
 <importedID>26A1E906-3FE8-5291-BEA4-01D20D74273D</importedID>
 <referredTableLongName>national_park</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>D64440C4-40A1-CE17-8295-3FE75B38A38F</referredTableID>
 <keyObject>D79DB7D4-44FD-8601-DD02-0352B787F2CB</keyObject>
 <referredKeyID>D79DB7D4-44FD-8601-DD02-0352B787F2CB</referredKeyID>
