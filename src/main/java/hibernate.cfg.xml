@@ -19,8 +19,8 @@
     	<property name="hibernate.format_sql">true</property>
 		<mapping class="mountain.mountainList.model.RouteSummary"/>
 		
-		<mapping class="member.login.member.login.model.MemberBean"/>
-		
+		<mapping class="member.login.model.MemberBean"/>
+		<mapping class="member.login.model.LogoutBean"/>
 		
     </session-factory>
 </hibernate-configuration>

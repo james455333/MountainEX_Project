@@ -48,7 +48,7 @@
 						<h2>${MemberBean.name}的個人資料</h2>
 					
 						<label>帳號：</label>
-						<span><c:out value="${MemberBean.memberId}" /></span>
+						<span><c:out value="${MemberBean.account}" /></span>
 						<br/>
 		
 						<label>姓名：</label>

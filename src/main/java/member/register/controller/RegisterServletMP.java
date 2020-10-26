@@ -29,17 +29,17 @@ public class RegisterServletMP extends HttpServlet {
 		
 		//連線
 		SessionFactory factory = HibernateUtil.getSessionFactory();
-		Session session = factory.getCurrentSession();
+		Session s1 = factory.getCurrentSession();
 		
 		
 		//接收submit
 		if(request.getParameter("submit") != null) {
 			
 			MemberBean mb = new MemberBean();
-			memberDAO dao = new memberJDBCDAO();
+			memberDAO dao = new memberJDBCDAO(s1);
 			
-			String mb_memberId = request.getParameter("memberId");
-			mb.setMemberId(mb_memberId);
+			String mb_account = request.getParameter("account");
+			mb.setAccount(mb_account);
 			System.out.println("1");
 			
 			String mb_password = request.getParameter("password");
@@ -72,11 +72,10 @@ public class RegisterServletMP extends HttpServlet {
 			mb.setGroupId(Integer.valueOf(mb_groupId));
 			System.out.println("8");
 			
-			dao.insertData(mb);
+			dao.insert(mb);
 			System.out.println("9");
 			
-			session.save(mb);
-			session.getTransaction().commit();
+			s1.getTransaction().commit();
 			response.sendRedirect("registersucc.jsp");
 	
 		}

@@ -43,7 +43,7 @@
 				<c:set var="logoutMessage" scope="request" />
 				<h2>
 				<font color="blue">
-					${memberId}，您已登出，感謝您的使用。<br/>
+					${MemberBean.name}，您已登出，感謝您的使用。<br/>
 				</font>
 				</h2>
 			

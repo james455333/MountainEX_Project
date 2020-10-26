@@ -52,8 +52,8 @@
 					<legend>註冊資訊</legend>
 					<div>
 						<label>帳號：</label>
-						<input type="text" name="memberId" id="memberId" size="20" value="${param.memberId}" class="fieldWidth" placeholder="請輸入帳號" autocomplete="off" onblur="checkName()">
-						<span id="mbIdsp"></span>
+						<input type="text" name="account" id="account" size="20" value="${param.memberId}" class="fieldWidth" placeholder="請輸入帳號" autocomplete="off" onblur="checkName()">
+						<span id="acIdsp"></span>
 						<br/>
 					</div>
 					<div>

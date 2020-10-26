@@ -34,7 +34,7 @@
 					<h2>${MemberBean.name}的個人資料</h2>
 					
 						<label>帳號：</label>
-						<input type="text" id="userId" name="userId" readonly="readonly" value="${MemberBean.memberId}" />
+						<input type="text" id="userId" name="userId" readonly="readonly" value="${MemberBean.account}" />
 						<br/>
 						
 						<label>密碼：</label>

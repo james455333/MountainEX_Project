@@ -23,6 +23,7 @@ public class MemberInfoServlet extends HttpServlet {
 			return;
 		}
 		
+		
 		if(request.getParameter("logout") != null) {
 			System.out.println("B");
 			response.sendRedirect(request.getContextPath() + "/member/login/logout.jsp");

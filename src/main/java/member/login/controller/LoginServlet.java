@@ -18,9 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import member.login.model.MemberBean;
 import member.register.dao.memberDAO;
 import member.register.dao.memberJDBCDAO;
+import util.HibernateUtil;
 
 
 
@@ -33,21 +37,10 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		DataSource ds = null;
-		InitialContext ctxt = null;
-		Connection connection = null;
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session s1 = factory.getCurrentSession();
 		
-		try {
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/xe");
-			connection = ds.getConnection();
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		HttpSession session = request.getSession();
+		HttpSession s2 = request.getSession();
 		Map<String, String> errorMsgMap = new HashMap<String, String>();
 		
 		request.setAttribute("ErrorMsgKey", errorMsgMap);
@@ -95,16 +88,18 @@ public class LoginServlet extends HttpServlet {
 		response.addCookie(cookieRememberMe);
 		
 		MemberBean mb = new MemberBean();
-		memberDAO dao = new memberJDBCDAO();
+		memberDAO dao = new memberJDBCDAO(s1);
 		
 		//確認user輸入的密碼
-		System.out.println(userId);
-		System.out.println(password);
 		try {
+			System.out.println(userId);
+			System.out.println(password);
+
 			mb = dao.checkIdPassword(userId, password);
 			System.out.println("7");
+			
 			if(mb != null) {
-				session.setAttribute("LoginOK", mb);
+				s2.setAttribute("LoginOK", mb);
 				System.out.println("1");
 			}else {
 				errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
@@ -112,11 +107,12 @@ public class LoginServlet extends HttpServlet {
 			}
 		} catch (RuntimeException e) {
 			errorMsgMap.put("LoginError", e.getMessage());
+			e.printStackTrace();
 			System.out.println("3");
 		}
 		
 		if(errorMsgMap.isEmpty()) {
-			session.setAttribute("MemberBean", mb);
+			s2.setAttribute("MemberBean", mb);
 			System.out.println(userId);
 			response.sendRedirect("loginsucc.jsp");
 //			response.sendRedirect("loginsucc.jsp");
