@@ -1,7 +1,7 @@
 package member.backup.controller;
 
 import java.io.IOException;
-import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -40,14 +40,16 @@ public class MemberBackupServlet extends HttpServlet {
 			actionAll(request, response);
 		} else if(request.getParameter("selectOne") != null) {
 			actionOne(request, response);
-		} else if(request.getParameter("update") != null) {
-			actionUpdate(request, response);
+		} else if(request.getParameter("updateA") != null) {
+			actionUpdateA(request, response);
+		} else if(request.getParameter("updateS") != null) {
+			actionUpdateS(request, response);
 		}
 		
 		doGet(request, response);
 	}
 	
-	
+
 	private void actionAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("1");
 		
@@ -62,7 +64,7 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("mbList", mbList);
 		System.out.println("2");
-		response.sendRedirect("Memberback.jsp");
+//		response.sendRedirect("Memberback.jsp");
 	}
 	
 	
@@ -81,11 +83,11 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("oneList", oneList);
 		System.out.println("B");
-		response.sendRedirect("Memberback.jsp");
+//		response.sendRedirect("Memberback.jsp");
 	}
 	
 	
-	private void actionUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void actionUpdateA(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("I");
 		
 		SessionFactory factory = HibernateUtil.getSessionFactory();
@@ -95,47 +97,108 @@ public class MemberBackupServlet extends HttpServlet {
 		MemberBean mb = new MemberBean();
 		MemberBackDAO dao = new MemberBackJDBCDAO(s1);
 		
-		int memberId = (Integer.parseInt(request.getParameter("memberId")));
+		
+		int memberId = Integer.parseInt(request.getParameter("memberIdA"));
+		System.out.println(memberId);
 		mb.setMemberId(memberId);
 		
-		String account = request.getParameter("account");
+		String account = request.getParameter("accountA");
 		mb.setAccount(account);
 		
-		String password = request.getParameter("password");
+		String password = request.getParameter("passwordA");
 		mb.setPassword(password);
 		
-		String name = request.getParameter("name");
+		String name = request.getParameter("nameA");
 		mb.setName(name);
 		
-		String address = request.getParameter("address");
+		String address = request.getParameter("addressA");
 		mb.setAddress(address);
 		
-		String email = request.getParameter("email");
+		String email = request.getParameter("emailA");
 		mb.setEmail(email);
 		
-		String tel = request.getParameter("tel");
+		String tel = request.getParameter("telA");
 		mb.setTel(tel);
 		
-		String exp = request.getParameter("exp");
+		String exp = request.getParameter("expA");
 		mb.setExp(exp);
 		
-		int groupId = (Integer.parseInt(request.getParameter("groupId")));
-		mb.setGroupId(groupId);
+		String groupId = request.getParameter("groupIdA");
+		mb.setGroupId(Integer.parseInt(groupId));
 		
-		double totalAmt = (Integer.parseInt(request.getParameter("totalAmt")));
-		mb.setTotalAmt(totalAmt);
+		String totalAmt = request.getParameter("totalAmtA");
+		mb.setTotalAmt(Double.parseDouble(totalAmt));
 		
-		double unpaid_amount = (Integer.parseInt(request.getParameter("unpaid_amount")));
-		mb.setUnpaid_amount(unpaid_amount);
+		String unpaid_amount = request.getParameter("unpaid_amountA");
+		mb.setUnpaid_amount(Double.parseDouble(unpaid_amount));
 		
-//		Blob memberImage = request.getParameter("memberImage");
+//		Blob memberImage = request.getParameter("memberImageA");
 		
 		dao.updateData(memberId, mb);
+		List<MemberBean> mbList = dao.selectAll();
 		
-		s2.setAttribute("info", mb);
+		s2.setAttribute("mbList", mbList);
 		System.out.println("II");
-		response.sendRedirect("Memberback.jsp");
+//		response.sendRedirect("Memberback.jsp");
 
+	}
+	
+	
+	private void actionUpdateS(HttpServletRequest request, HttpServletResponse response) {
+		
+		System.out.println("a");
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session s1 = factory.getCurrentSession();
+		
+		HttpSession s2 = request.getSession();
+		MemberBean mb = new MemberBean();
+		MemberBackDAO dao = new MemberBackJDBCDAO(s1);
+		
+		
+		int memberId = Integer.parseInt(request.getParameter("memberIdS"));
+		System.out.println(memberId);
+		mb.setMemberId(memberId);
+		
+		String account = request.getParameter("accountS");
+		mb.setAccount(account);
+		
+		String password = request.getParameter("passwordS");
+		mb.setPassword(password);
+		
+		String name = request.getParameter("nameS");
+		mb.setName(name);
+		
+		String address = request.getParameter("addressS");
+		mb.setAddress(address);
+		
+		String email = request.getParameter("emailS");
+		mb.setEmail(email);
+		
+		String tel = request.getParameter("telS");
+		mb.setTel(tel);
+		
+		String exp = request.getParameter("expS");
+		mb.setExp(exp);
+		
+		String groupId = request.getParameter("groupIdS");
+		mb.setGroupId(Integer.parseInt(groupId));
+		
+		String totalAmt = request.getParameter("totalAmtS");
+		mb.setTotalAmt(Double.parseDouble(totalAmt));
+		
+		String unpaid_amount = request.getParameter("unpaid_amountS");
+		mb.setUnpaid_amount(Double.parseDouble(unpaid_amount));
+		
+//		Blob memberImage = request.getParameter("memberImageS");
+		
+		dao.updateData(memberId, mb);
+		List<MemberBean> oneList = dao.selectOne(account);
+		
+		s2.setAttribute("oneList", oneList);
+		System.out.println("b");
+//		response.sendRedirect("Memberback.jsp");
+		
 	}
 
 }

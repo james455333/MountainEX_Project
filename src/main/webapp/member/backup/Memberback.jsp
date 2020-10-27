@@ -34,7 +34,7 @@
 					<tr>
 						<td>${info.memberId}</td>
 						<td>${info.account}</td>
-<%-- 						<td>${info.password}</td> --%>
+<%-- 						<td>${mbList.password}</td> --%>
 						<td>${info.name}</td>
 						<td>${info.address}</td>
 						<td>${info.email}</td>
@@ -46,20 +46,20 @@
 						<td>${info.memberImage}</td>
 						<td>
 							<form id="update1" method="POST" action="<c:url value='MemberBackupServlet' />">
-								<input type="text" id="account" name="account" value="${info.account}" />
-								<input type="password" id="password" name="password" value="${info.password}" />
-								<input type="text" id="name" name="name" value="${info.name}" />
-								<input type="text" id="address" name="address" value="${info.address}" />
-								<input type="text" id="email" name="email" value="${info.email}" />
-								<input type="text" id="tel" name="tel" value="${info.tel}" />
-								<input type="text" id="groupId" name="groupId" value="${info.groupId}" />
-								<input type="text" id="totalAmt" name="totalAmt" value="${info.totalAmt}" />
-								<input type="text" id="unpaid_amount" name="unpaid_amount" value="${info.unpaid_amount}" />
-<%-- 							<input type="text" id="memberImage" name="memberImage" value="${info.memberImage}" /> --%>
+								<input type="text" id="memberIdA" name="memberIdA" readonly="readonly" value="${info.memberId}" />
+								<input type="text" id="accountA" name="accountA" value="${info.account}" />
+								<input type="password" id="passwordA" name="passwordA" value="${info.password}" />
+								<input type="text" id="nameA" name="nameA" value="${info.name}" />
+								<input type="text" id="addressA" name="addressA" value="${info.address}" />
+								<input type="text" id="emailA" name="emailA" value="${info.email}" />
+								<input type="text" id="telA" name="telA" value="${info.tel}" />
+								<input type="text" id="expA" name="expA" value="${info.exp}" />
+								<input type="text" id="groupIdA" name="groupIdA" value="${info.groupId}" />
+								<input type="text" id="totalAmtA" name="totalAmtA" value="${info.totalAmt}" />
+								<input type="text" id="unpaid_amountA" name="unpaid_amountA" value="${info.unpaid_amount}" />
+<%-- 							<input type="text" id="memberImageA" name="memberImageA" value="${info.memberImage}" /> --%>
+								<input type="submit" id="update" name="updateA" value="修改"/>
 							</form>
-						</td>	
-						<td>
-							<input type="submit" id="update" name="update" value="修改"/>
 						</td>				
 					</tr>
 				</c:forEach>
@@ -80,10 +80,24 @@
 						<td>${infoS.groupId}</td>
 						<td>${infoS.totalAmt}</td>
 						<td>${infoS.unpaid_amount}</td>
-						<td>${infoS.memberImage}</td>	
+						<td>${infoS.memberImage}</td>
 						<td>
-							<input type="submit" id="update" name="update" value="修改"/>
-						</td>				
+							<form id="update1" method="POST" action="<c:url value='MemberBackupServlet' />">
+								<input type="text" id="memberIdS" name="memberIdS" readonly="readonly" value="${infoS.memberId}" />
+								<input type="text" id="accountS" name="accountS" value="${infoS.account}" />
+								<input type="password" id="passwordS" name="passwordS" value="${infoS.password}" />
+								<input type="text" id="nameS" name="nameS" value="${infoS.name}" />
+								<input type="text" id="addressS" name="addressS" value="${infoS.address}" />
+								<input type="text" id="emailS" name="emailS" value="${infoS.email}" />
+								<input type="text" id="telS" name="telS" value="${infoS.tel}" />
+								<input type="text" id="expS" name="expS" value="${infoS.exp}" />
+								<input type="text" id="groupIdS" name="groupIdS" value="${infoS.groupId}" />
+								<input type="text" id="totalAmtS" name="totalAmtS" value="${infoS.totalAmt}" />
+								<input type="text" id="unpaid_amountS" name="unpaid_amountS" value="${infoS.unpaid_amount}" />
+<%-- 							<input type="text" id="memberImageS" name="memberImageS" value="${info.memberImage}" /> --%>
+								<input type="submit" id="update" name="updateS" value="修改"/>
+							</form>
+						</td>					
 					</tr>
 				</c:forEach>
 				</table>

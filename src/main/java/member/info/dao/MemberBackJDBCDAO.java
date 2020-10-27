@@ -36,8 +36,12 @@ public class MemberBackJDBCDAO implements MemberBackDAO {
 
 	@Override
 	public MemberBean updateData(int memberId, MemberBean mb) {
+//		Query<MemberBean> query = session.createQuery("From MemberBean where memberId = ?0", MemberBean.class);
+		
 		MemberBean result = session.get(MemberBean.class, memberId);
+		
 		if(result != null) {
+		
 			result.setAccount(mb.getAccount());
 			result.setName(mb.getName());
 			result.setAddress(mb.getAddress());
@@ -49,8 +53,13 @@ public class MemberBackJDBCDAO implements MemberBackDAO {
 			result.setUnpaid_amount(mb.getUnpaid_amount());
 //			result.setMemberImage(mb.getMemberImage());
 		}
+		
 		return result;
 	}
+
+	
+
+	
 
 	
 
