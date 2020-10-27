@@ -35,7 +35,7 @@
 	</FORM>
 	<hr>
 	<hr>
-	<a href='<c:url value="/shopping/InsertPage.jsp" />'>新增一筆商品資訊</a>
+	<a href='<c:url value="/shopping/insertPage.jsp" />'>新增一筆商品資訊</a>
 	<hr>
 
 	<table border='1'>
@@ -62,7 +62,7 @@
 			<td width='200' align='center'>${aProductBean.secondClass}</td>
 			<td width='40' align='center'>${aProductBean.stock}</td>
 			<td align='center'>${aProductBean.firstClassname}</td>
-			<td><a href='<c:url value="/shopping/UpdatePage.jsp" />'>修改</a></td>
+			<td><a href='<c:url value="/shopping/updatePage.jsp" />'>修改</a></td>
 			<FORM ACTION="ProductDeleteServlet">
 				<td><INPUT NAME="${aProductBean.name}" TYPE="SUBMIT" VALUE="刪除">
 			</FORM>
