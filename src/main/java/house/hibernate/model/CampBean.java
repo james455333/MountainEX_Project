@@ -1,26 +1,37 @@
 package house.hibernate.model;
 
-public class CampBean {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "camp")
+public class CampBean {
+	
 	private int campid;
 	private String city;
 	private String camptown;
 	private String campname;
 	private String campdesc;
 	
-	public CampBean() {
-		
-	}
+//	public CampBean() {
+//		
+//	}
+//	
+//	public CampBean(int campid, String city, String camptown, String campname, String campdesc) {
+//		this.campid = campid;
+//		this.city = city;
+//		this.camptown = camptown;
+//		this.campname = campname;
+//		this.campdesc = campdesc;
+//		
+//	}
 	
-	public CampBean(int campid, String city, String camptown, String campname, String campdesc) {
-		this.campid = campid;
-		this.city = city;
-		this.camptown = camptown;
-		this.campname = campname;
-		this.campdesc = campdesc;
-		
-	}
-	
+	@Id @Column(name = "CAMPID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getCampid() {
 		return campid;
 	}
@@ -28,7 +39,8 @@ public class CampBean {
 	public void setCampid(int campid) {
 		this.campid = campid;
 	}
-
+	
+	@Column(name = "CITY")
 	public String getCity() {
 		return city;
 	}
@@ -37,6 +49,7 @@ public class CampBean {
 		this.city = city;
 	}
 
+	@Column(name = "CAMPTOWN")
 	public String getCamptown() {
 		return camptown;
 	}
@@ -45,6 +58,7 @@ public class CampBean {
 		this.camptown = camptown;
 	}
 
+	@Column(name = "CAMPNAME")
 	public String getCampname() {
 		return campname;
 	}
@@ -53,6 +67,7 @@ public class CampBean {
 		this.campname = campname;
 	}
 
+	@Column(name = "CAMPDESC")
 	public String getCampdesc() {
 		return campdesc;
 	}

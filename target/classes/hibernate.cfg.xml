@@ -21,5 +21,7 @@
 		
 		<mapping resource="house/hibernate/model/CampBean.hbm.xml"/>
 		
+		<mapping resource="house/hibernate/model/MountainHouse.hbm.xml"/> 
+		
     </session-factory>
 </hibernate-configuration>
