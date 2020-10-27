@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +32,6 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import mountain.mountainList.dao.RouteBasicHibernateDAO;
 import mountain.mountainList.model.NationalPark;
 import mountain.mountainList.model.RouteBasic;
 import mountain.mountainList.model.RouteInfo;
@@ -53,12 +52,14 @@ public class RouteDateImportServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
-
-		File file = new File(SYSTEM_ROOT+"\\data/Mountain_UTF8.csv");
+		PrintWriter out = response.getWriter();
+		File file = new File("C:\\DataSource\\MountainEX_Project\\data/Mountain_UTF8.csv");
 		importDataToDB(file, session);
-
+		out.write("建置完成");
 	}
 
 	public static void importDataToDB(File file, Session session) {

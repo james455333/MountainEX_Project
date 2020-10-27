@@ -80,20 +80,21 @@
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
+			<!-- 
 			<div class="searchAll">
 				<form>
 				<input type="search" name="search1">
 				<input type="submit" value="搜尋">
 				</form>
-			</div>
+			</div> -->
 		</div>
 		<div id="controller">
 			<div>
 				<a href="backMountainNewData.jsp">新增資料</a>	
 			</div>
 			<div>
-				<form action="RouteDataServlet">
-					<input type="search" name="searchInsert">
+				<form action="">
+					<input type="search" name="searchInsert" readonly placeholder="尚未實作">
 					<input type="submit" name="mOrder" value="修改">		
 				</form>
 			</div>

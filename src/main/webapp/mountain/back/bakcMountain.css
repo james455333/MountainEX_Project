@@ -5,6 +5,7 @@
 	height : 5%;
 	width : 100%;
 	border-bottom : 1px solid green;
+	font-size : 50%;
 	
 }
 .searchSelect{
@@ -16,14 +17,14 @@
     justify-content:center;
 }
 #scopeQueryNP{
-	width : 35%;
+	width :45%;
 	height : 100%;
 	display : inline-flex;
     align-items:center;
     justify-content:center;
 }
 .scopeQuery{
-	width : 35%;
+	width : 50%;
 	height : 100%;
 	display : inline-flex;
     align-items:center;
@@ -31,7 +32,7 @@
 }
 
 .searchAll{
-	width : 25%;
+	width : 20%;
 	height : 100%;
 	float : right;
 	display : inline-flex;
@@ -55,9 +56,10 @@
 	display : inline-flex;
     align-items:center;
     justify-content:center;
+    font-size : 50%;
 }
 #controller div{
-	width : 33%;
+	width : 30%;
 	display : flex;
     align-items:center;
     justify-content:center;

@@ -38,15 +38,15 @@
 			</div>
 			<div >
 				<label for="routeDesp">* 路線介紹 : &nbsp&nbsp</label>			
-				<textarea rows="2.5%" cols="150%" name="routeDesp" class="bigText"></textarea>
+				<textarea rows="2.5%" cols="50%" name="routeDesp" class="bigText"></textarea>
 			</div>
 			<div >
 				<label for="routeAdvice">* 建議路線 : &nbsp&nbsp</label>			
-				<textarea rows="2.5%" cols="150%" name="routeAdvice" class="bigText"></textarea>
+				<textarea rows="2.5%" cols="50%" name="routeAdvice" class="bigText"></textarea>
 			</div>
 			<div >
 				<label for="routeTraffic">* 交通資訊 : &nbsp&nbsp</label>			
-				<textarea rows="2.5%" cols="150%" name="routeTraffic" class="bigText"></textarea>
+				<textarea rows="2.5%" cols="50%" name="routeTraffic" class="bigText"></textarea>
 			</div>
 			<div id="new_confirm">
 				<div>
