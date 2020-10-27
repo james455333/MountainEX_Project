@@ -14,7 +14,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,10 +45,10 @@ import util.HibernateUtil;
 @WebServlet("/dataimport/RouteDateImportServlet")
 public class RouteDateImportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String RouteImgTitle = "RouteMap";
-	private static int RouteImgNum = 1;
-	private static final String CHARSET = "UTF-8";
-	//系統根目錄 根據真實目的地修改
+	public static String RouteImgTitle = "RouteMap";
+	public static int RouteImgNum = 1;
+	public static final String CHARSET = "UTF-8";
+	//系統根目錄
 	private static final String SYSTEM_ROOT="C:\\DataSource\\workspace\\MountainEX_Project";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -100,7 +103,9 @@ public class RouteDateImportServlet extends HttpServlet {
 				rIBean.setImgUrl(localBlob);
 
 				rBBean.setNational_park(npBean);
-				npBean.setRouteBasic(rBBean);
+				Set<RouteBasic> rBBeanSet = new HashSet<RouteBasic>();
+				rBBeanSet.add(rBBean);
+				npBean.setRouteBasic(rBBeanSet);
 				rBBean.setRouteInfo(rIBean);
 				rIBean.setRoute_basic(rBBean);
 				NationalParkService npService = new NationalParkHibernateService(session);

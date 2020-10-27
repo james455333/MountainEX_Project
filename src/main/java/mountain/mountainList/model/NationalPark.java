@@ -1,5 +1,7 @@
 package mountain.mountainList.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,8 +23,8 @@ public class NationalPark {
 	private int id;
 	@Column(name = "NAME", unique = true)
 	private String name;
-	@OneToOne(fetch = FetchType.LAZY , mappedBy = "national_park" , cascade = CascadeType.ALL)
-	private RouteBasic routeBasic;
+	@OneToMany(fetch = FetchType.LAZY , mappedBy = "national_park" , cascade = CascadeType.ALL)
+	private Set<RouteBasic> routeBasic;
 	
 	public int getId() {
 		return id;
@@ -35,10 +38,10 @@ public class NationalPark {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public RouteBasic getRouteBasic() {
+	public Set<RouteBasic> getRouteBasic() {
 		return routeBasic;
 	}
-	public void setRouteBasic(RouteBasic routeBasic) {
+	public void setRouteBasic(Set<RouteBasic> routeBasic) {
 		this.routeBasic = routeBasic;
 	}
 	

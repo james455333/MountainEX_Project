@@ -63,6 +63,7 @@ public class NationalParkHibernateDAO implements NationalParkDAO {
 		
 		if(result != null) {
 			session.update(npBean);
+			System.out.println("修改成功");
 			return npBean;
 		}
 		

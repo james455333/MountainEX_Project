@@ -2,15 +2,16 @@
 $("#nPSelect").on("change",function(){
 	
 	let val = $(this).val() ;
-	if( val == '太魯閣國家公園'){
-		$(".route").hide();
-		$(".route").eq(0).show();
-	}else if( val == '玉山國家公園'){
-		$(".route").hide();
-		$(".route").eq(1).show();
-	}else if( val == '雪霸國家公園' ){
-		$(".route").hide();
-		$(".route").eq(2).show();
+	console.log(val);
+	if( val == 300){
+		$(".scopeQuery").hide();
+		$(".scopeQuery").eq(0).show();
+	}else if( val == 301){
+		$(".scopeQuery").hide();
+		$(".scopeQuery").eq(1).show();
+	}else if( val == 302 ){
+		$(".scopeQuery").hide();
+		$(".scopeQuery").eq(2).show();
 	}
 	
 });

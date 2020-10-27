@@ -1,4 +1,4 @@
-@charset "BIG5";
+@charset "UTF-8";
 
 #searchBar{
 	position : relative;
@@ -11,6 +11,13 @@
 	width : 50%;
 	height : 100%;
 	float : left;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+#scopeQueryNP{
+	width : 35%;
+	height : 100%;
 	display : inline-flex;
     align-items:center;
     justify-content:center;
@@ -62,4 +69,33 @@
 }
 .hidden{
 	display : none;
+}
+.newDataForm{
+	position : relative;
+	height : 75%;
+	top : 5.5%;
+	width : 75%;
+	left : 12.5%;
+	border : 5px ridge #400040;
+	background-color: #e1ffb0; 
+}
+.newDataForm div{
+	margin: 2%;
+	width : auto;
+	height : auto;
+}
+textarea{
+	resize : horizontal;
+	padding : 5px;
+}
+#new_confirm{
+	position: absolute;
+	width : 100%;
+	bottom: 0%;
+	display : inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+#new_confirm div{
+	width : 10%;
 }

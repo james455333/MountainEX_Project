@@ -16,27 +16,33 @@ import org.hibernate.SessionFactory;
 import mountain.mountainList.model.NationalPark;
 import mountain.mountainList.model.RouteBasic;
 import mountain.mountainList.model.RouteInfo;
+import mountain.mountainList.service.NationalParkHibernateService;
 import mountain.mountainList.service.RouteInfoHibernateService;
+import mountain.mountainList.service.impl.NationalParkService;
 import mountain.mountainList.service.impl.RouteInfoService;
 import util.HibernateUtil;
 
-@WebServlet("/TestRouteHibernateServlet")
+@WebServlet("/mountain/back/TestRouteHibernateServlet")
 public class TestRouteHibernateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
 		
-		RouteInfoService rIService = new RouteInfoHibernateService(session);
-		List<RouteInfo> selectAll = rIService.selectAll();
-		for (RouteInfo routeInfo : selectAll) {
-			RouteBasic route_basic = routeInfo.getRoute_basic();
-			out.write(routeInfo.getName()+"<br>");
-		}
+//		RouteInfoService rIService = new RouteInfoHibernateService(session);
+//		List<RouteInfo> selectAll = rIService.selectAll();
+//		for (RouteInfo routeInfo : selectAll) {
+//			RouteBasic route_basic = routeInfo.getRoute_basic();
+//			out.write(routeInfo.getName()+"<br>");
+//		}
+		
+		String attribute = request.getParameter("routeImg");
+		System.out.println(attribute);
 		
 	}
 
