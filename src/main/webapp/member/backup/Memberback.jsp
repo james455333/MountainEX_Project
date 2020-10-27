@@ -43,7 +43,21 @@
 						<td>${info.groupId}</td>
 						<td>${info.totalAmt}</td>
 						<td>${info.unpaid_amount}</td>
-						<td>${info.memberImage}</td>	
+						<td>${info.memberImage}</td>
+						<td>
+							<form id="update1" method="POST" action="<c:url value='MemberBackupServlet' />">
+								<input type="text" id="account" name="account" value="${info.account}" />
+								<input type="password" id="password" name="password" value="${info.password}" />
+								<input type="text" id="name" name="name" value="${info.name}" />
+								<input type="text" id="address" name="address" value="${info.address}" />
+								<input type="text" id="email" name="email" value="${info.email}" />
+								<input type="text" id="tel" name="tel" value="${info.tel}" />
+								<input type="text" id="groupId" name="groupId" value="${info.groupId}" />
+								<input type="text" id="totalAmt" name="totalAmt" value="${info.totalAmt}" />
+								<input type="text" id="unpaid_amount" name="unpaid_amount" value="${info.unpaid_amount}" />
+<%-- 							<input type="text" id="memberImage" name="memberImage" value="${info.memberImage}" /> --%>
+							</form>
+						</td>	
 						<td>
 							<input type="submit" id="update" name="update" value="修改"/>
 						</td>				

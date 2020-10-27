@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Blob;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.tool.schema.extract.spi.ExtractionContext.DatabaseObjectAccess;
 
 import member.info.dao.MemberBackDAO;
 import member.info.dao.MemberBackJDBCDAO;
-import member.info.dao.memberInfoDAO;
 import member.login.model.MemberBean;
 import util.HibernateUtil;
 
@@ -25,14 +24,17 @@ import util.HibernateUtil;
 @WebServlet("/member/backup/MemberBackupServlet")
 public class MemberBackupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("Memberback.jsp");
+		rd.forward(request, response);
+		return;
+	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
-		
-		
+
 		
 		if(request.getParameter("selectAll") != null) {
 			actionAll(request, response);
@@ -42,24 +44,7 @@ public class MemberBackupServlet extends HttpServlet {
 			actionUpdate(request, response);
 		}
 		
-//		request.setCharacterEncoding("UTF-8");
-//		response.setContentType("text/html; charset=UTF-8");
-//		
-//		SessionFactory factory = HibernateUtil.getSessionFactory();
-//		Session s1 = factory.getCurrentSession();
-//		
-//		HttpSession s2 = request.getSession();
-//		
-//		MemberBackDAO dao = new MemberBackJDBCDAO(s1);
-//		
-//		if(request.getParameter("selectAll") != null) {
-//			System.out.println("1");
-//			List<MemberBean> mbList = dao.selectAll();
-//			
-//			s2.setAttribute("mbList", mbList);
-//			System.out.println("2");
-//			response.sendRedirect("Memberback.jsp");
-//		}
+		doGet(request, response);
 	}
 	
 	
