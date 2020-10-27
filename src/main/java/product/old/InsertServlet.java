@@ -1,4 +1,4 @@
-package product.controller;
+package product.old;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
-import product.service.IProductService;
 
 /**
  * Servlet implementation class InsertServlet

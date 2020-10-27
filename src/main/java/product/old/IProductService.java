@@ -1,9 +1,6 @@
-package product.service;
+package product.old;
 
 import java.util.List;
-
-import product.model.ClassBean;
-import product.model.ProductBean;
 
 public interface IProductService {
 	

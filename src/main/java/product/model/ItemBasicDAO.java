@@ -46,7 +46,7 @@ public class ItemBasicDAO {
 		List<ItemBasic> list = query.list();
 		return list;
 	}
-	//修改(商品名、庫存量)
+	//修改(庫存量)
 	public ItemBasic update(int stock) {
 		ItemBasic result = session.get(ItemBasic.class, stock);
 		if (result!=null) {

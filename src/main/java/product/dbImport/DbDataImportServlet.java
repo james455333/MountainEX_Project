@@ -83,7 +83,7 @@ public class DbDataImportServlet extends HttpServlet {
 				String type = csvRecord.get("TYPE");
 				String pricesString = csvRecord.get("PRICE");
 				String imgURL = csvRecord.get("IMG_URL");
-				System.out.println(imgURL);
+//				System.out.println(imgURL);
 				String description = csvRecord.get("DESCRIPTION");
 				String secondClass = csvRecord.get("SECOND_CLASS");
 

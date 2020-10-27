@@ -1,4 +1,4 @@
-package product.controller;
+package product.old;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -18,10 +18,6 @@ import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
 import product.dao.impl.ProductDao_Jdbc;
-import product.model.ClassBean;
-import product.model.ProductBean;
-import product.service.IProductService;
-import product.service.ProductService;
 /**
  * Servlet implementation class MaintainServlet
  */

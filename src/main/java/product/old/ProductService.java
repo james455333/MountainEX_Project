@@ -1,10 +1,8 @@
-package product.service;
+package product.old;
 
 import java.util.List;
 
 import product.dao.impl.ProductDao_Jdbc;
-import product.model.ClassBean;
-import product.model.ProductBean;
 
 
 public class ProductService implements IProductService {

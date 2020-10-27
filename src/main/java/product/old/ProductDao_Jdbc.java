@@ -1,4 +1,4 @@
-package product.impl;
+package product.old;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,8 +26,6 @@ import org.omg.CORBA.StringHolder;
 import dB.DataS;
 import mountain.mountainList.model.MountainBean;
 import oracle.net.aso.b;
-import product.model.ClassBean;
-import product.model.ProductBean;
 
 public class ProductDao_Jdbc {
 

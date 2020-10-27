@@ -9,50 +9,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.LifecycleListener;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import antlr.collections.List;
 import product.model.ItemBasic;
 import product.model.ItemBasicDAO;
 import util.HibernateUtil;
 
-
-/**
- * Servlet implementation class ProductDeleteServlet
- */
-@WebServlet("/ProductDeleteServlet")
-public class ProductDeleteServlet extends HttpServlet {
+@WebServlet("/ProductInsertServlet")
+public class ProductInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Delete(request, response);
+		Insert(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Delete(request, response);
+		Insert(request, response);
 	}
 
-	private void Delete(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
+	private void Insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.getCurrentSession();
 		
-		boolean result = new ItemBasicDAO(session).delete(request.getParameter("name"));
+		ItemBasicDAO itemBasicDAO = new ItemBasicDAO(session);
 		
-		if (result) {
-			System.out.println("刪除成功");
-		}else {
-			System.out.println("刪除失敗");
-		}
-       
+		ItemBasic ibBean = new ItemBasic();
+		ibBean.setName(request.getParameter("name"));
+		ibBean.setSotck(Integer.valueOf((String)request.getAttribute("stock")));
+		
+		
+		itemBasicDAO.insert(ibBean);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("shopBackStage.jsp");
 		rd.forward(request, response);
-		
-		
-		
 	}
-	
-	
+
 }

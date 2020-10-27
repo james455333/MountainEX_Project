@@ -1,4 +1,4 @@
-package product.controller;
+package product.old;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import product.dao.impl.ProductDao_Jdbc;
-import product.model.ProductBean;
 
 /**
  * Servlet implementation class DeleteServlet

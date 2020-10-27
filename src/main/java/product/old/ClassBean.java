@@ -1,4 +1,4 @@
-package product.model;
+package product.old;
 
 public class ClassBean {
 	private int tableID;

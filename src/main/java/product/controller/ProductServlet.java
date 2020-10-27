@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import product.impl.ProductDao_Jdbc;
-import product.model.ClassBean;
-import product.model.ProductBean;
+import product.old.ClassBean;
+import product.old.ProductBean;
+import product.old.ProductDao_Jdbc;
 
 
 @WebServlet("/shopping/ProductServlet")

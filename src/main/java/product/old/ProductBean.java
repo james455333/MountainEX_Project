@@ -1,4 +1,4 @@
-package product.model;
+package product.old;
 
 import java.sql.Blob;
 
