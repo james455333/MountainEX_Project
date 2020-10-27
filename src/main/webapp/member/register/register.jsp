@@ -109,12 +109,6 @@
 			        	<div>
 			            <input type="reset" name="reset" id="reset" value="清除">
 			        	</div>
-			        	<div>
-			        	<input type="submit" name="submitQ1" id="submitQ1" value="一般會員一鍵註冊">
-			        	</div>
-			        	<div>
-			        	<input type="submit" name="submitQ1" id="submitQ2" value="登山嚮導一鍵註冊">
-			        	</div>
 			        </div>
 				
 				</fieldset>

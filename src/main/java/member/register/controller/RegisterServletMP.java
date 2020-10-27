@@ -79,45 +79,7 @@ public class RegisterServletMP extends HttpServlet {
 			s1.getTransaction().commit();
 			response.sendRedirect("registersucc.jsp");
 	
-		} else if(request.getParameter("submitQ2") != null) {
-			
-			MemberBean mb = new MemberBean();
-			memberDAO dao = new memberJDBCDAO(s1);
-			
-			mb.setAccount("misaki777");
-			mb.setPassword("Do!ng123");
-			mb.setName("石凜音");
-			mb.setAddress("高雄市鼓山區蓮海路70號");
-			mb.setEmail("misaki@gmail.com");
-			mb.setTel("0922-777-999");
-			mb.setExp("八年");
-			mb.setGroupId(200);
-			
-			dao.insert(mb);
-			
-			s1.getTransaction().commit();
-			response.sendRedirect("registersucc.jsp");
-			
-		} else if(request.getParameter("submitQ1") != null) {
-			
-			MemberBean mb = new MemberBean();
-			memberDAO dao = new memberJDBCDAO(s1);
-			
-			mb.setAccount("makoto222");
-			mb.setPassword("Do!ng123");
-			mb.setName("丹禮真");
-			mb.setAddress("台北市中正區中山南路21-1號");
-			mb.setEmail("makoto@gmail.com");
-			mb.setTel("0922-121-555");
-			mb.setExp("9個月");
-			mb.setGroupId(100);
-			
-			dao.insert(mb);
-			
-			s1.getTransaction().commit();
-			response.sendRedirect("registersucc.jsp");
-			
-		}
+		} 
 		
 	}
 

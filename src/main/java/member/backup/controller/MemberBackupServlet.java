@@ -18,6 +18,8 @@ import org.hibernate.SessionFactory;
 import member.info.dao.MemberBackDAO;
 import member.info.dao.MemberBackJDBCDAO;
 import member.login.model.MemberBean;
+import member.register.dao.memberDAO;
+import member.register.dao.memberJDBCDAO;
 import util.HibernateUtil;
 
 
@@ -25,20 +27,15 @@ import util.HibernateUtil;
 public class MemberBackupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("Memberback.jsp");
-		rd.forward(request, response);
-//		return;
-	}
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		RequestDispatcher rd = request.getRequestDispatcher("Memberback.jsp");
+//		rd.forward(request, response);
+////		return;
+//	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
-		SessionFactory factory = HibernateUtil.getSessionFactory();
-		Session s1 = factory.getCurrentSession();
-		
-		HttpSession s2 = request.getSession();
 
 		
 		if(request.getParameter("selectAll") != null) {
@@ -49,10 +46,67 @@ public class MemberBackupServlet extends HttpServlet {
 			actionUpdateA(request, response);
 		} else if(request.getParameter("updateS") != null) {
 			actionUpdateS(request, response);
-		}
+		} else if(request.getParameter("submitQ1") != null) {
+			actionDateInsertQ1(request, response);
+		} else if(request.getParameter("submitQ2") != null) {
+			actionDateInsertQ2(request, response);
+		} 
 		
-		doGet(request, response);
+//		doGet(request, response);
 	}
+	
+
+	private void actionDateInsertQ1(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session s1 = factory.getCurrentSession();
+		
+		HttpSession s2 = request.getSession();
+		
+		MemberBean mb = new MemberBean();
+		memberDAO dao = new memberJDBCDAO(s1);
+		
+		mb.setAccount("makoto222");
+		mb.setPassword("Do!ng123");
+		mb.setName("丹禮真");
+		mb.setAddress("台北市中正區中山南路21-1號");
+		mb.setEmail("makoto@gmail.com");
+		mb.setTel("0922-121-555");
+		mb.setExp("9個月");
+		mb.setGroupId(100);
+		
+		dao.insert(mb);
+		
+		s1.getTransaction().commit();
+		response.sendRedirect("Memberback.jsp");
+	}
+	
+	
+	private void actionDateInsertQ2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session s1 = factory.getCurrentSession();
+		
+		HttpSession s2 = request.getSession();
+		
+		MemberBean mb = new MemberBean();
+		memberDAO dao = new memberJDBCDAO(s1);
+		
+		mb.setAccount("misaki777");
+		mb.setPassword("Do!ng123");
+		mb.setName("石凜音");
+		mb.setAddress("高雄市鼓山區蓮海路70號");
+		mb.setEmail("misaki@gmail.com");
+		mb.setTel("0922-777-999");
+		mb.setExp("八年");
+		mb.setGroupId(200);
+		
+		dao.insert(mb);
+		
+		s1.getTransaction().commit();
+		response.sendRedirect("Memberback.jsp");
+	}
+	
 	
 
 	private void actionAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -69,7 +123,7 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("mbList", mbList);
 		System.out.println("2");
-//		response.sendRedirect("Memberback.jsp");
+		response.sendRedirect("Memberback.jsp");
 	}
 	
 	
@@ -88,7 +142,7 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("oneList", oneList);
 		System.out.println("B");
-//		response.sendRedirect("Memberback.jsp");
+		response.sendRedirect("MemberbackSelectOne.jsp");
 	}
 	
 	
@@ -144,7 +198,7 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("mbList", mbList);
 		System.out.println("II");
-//		response.sendRedirect("Memberback.jsp");
+		response.sendRedirect("Memberback.jsp");
 
 	}
 	
@@ -202,7 +256,7 @@ public class MemberBackupServlet extends HttpServlet {
 		
 		s2.setAttribute("oneList", oneList);
 		System.out.println("b");
-//		response.sendRedirect("Memberback.jsp");
+		response.sendRedirect("MemberbackSelectOne.jsp");
 		
 	}
 
