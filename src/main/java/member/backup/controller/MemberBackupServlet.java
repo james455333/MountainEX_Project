@@ -28,12 +28,17 @@ public class MemberBackupServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("Memberback.jsp");
 		rd.forward(request, response);
-		return;
+//		return;
 	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session s1 = factory.getCurrentSession();
+		
+		HttpSession s2 = request.getSession();
 
 		
 		if(request.getParameter("selectAll") != null) {
@@ -144,7 +149,7 @@ public class MemberBackupServlet extends HttpServlet {
 	}
 	
 	
-	private void actionUpdateS(HttpServletRequest request, HttpServletResponse response) {
+	private void actionUpdateS(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		System.out.println("a");
 		
