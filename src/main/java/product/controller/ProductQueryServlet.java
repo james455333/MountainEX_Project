@@ -59,7 +59,7 @@ public class ProductQueryServlet extends HttpServlet {
 		}
 		if (request.getParameter("iteminfo") != null) {
 			List<ItemInfo> itemInfoList = itemInfoDAO.selectAll();
-			((ServletRequest) session).setAttribute("products_DPP", itemInfoList);
+			((ServletRequest) session).setAttribute("query", itemInfoList);
 		}
 		
        
