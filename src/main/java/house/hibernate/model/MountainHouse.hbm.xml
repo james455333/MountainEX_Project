@@ -4,7 +4,7 @@
 <!-- Generated 2020/8/24 ?W?? 10:38:12 by Hibernate Tools 3.5.0.Final -->
 
 <hibernate-mapping>
-    <class name="house.hibernate.model.MountainHouse" table="CAMP">
+    <class name="house.hibernate.model.MountainHouse" table="MOUNTAINHOUSE">
         <id name="mountainhouseid" type="int">
             <column name="MOUNTAINHOUSEID" />
             <generator class="assigned" />
@@ -19,10 +19,10 @@
             <column name="HIGHT" />
         </property>
        <property name="mountainhouseseat" type="int">
-       <column name="MOUNTAINHOUSESEAT"/>
+       		<column name="MOUNTAINHOUSESEAT"/>
        </property>
        <property name="campseat" type="int">
-       <column name="CAMPSEAT"/>
+      		 <column name="CAMPSEAT"/>
        </property>
     </class>
 </hibernate-mapping>

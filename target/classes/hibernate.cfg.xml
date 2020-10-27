@@ -19,9 +19,9 @@
     	<property name="hibernate.format_sql">true</property>
 		<mapping class="mountain.mountainList.model.RouteSummary"/>
 		
-		<mapping resource="house/hibernate/model/CampBean.hbm.xml"/>
+		<mapping class="house.hibernate.model.CampBean"/>
 		
-		<mapping resource="house/hibernate/model/MountainHouse.hbm.xml"/> 
+		<mapping class="house.hibernate.model.MountainHouseBean"/> 
 		
     </session-factory>
 </hibernate-configuration>

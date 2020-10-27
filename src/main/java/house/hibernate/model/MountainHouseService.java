@@ -2,46 +2,48 @@ package house.hibernate.model;
 
 import java.util.List;
 
-public class MountainHouseService implements IMountainHouseService {
+import org.hibernate.Session;
 
+public class MountainHouseService implements IMountainHouseService {
+	
+	private MountainHouseDAO mDao;
+	public MountainHouseService(Session session) {
+		mDao = new MountainHouseDAO(session);
+	}
+	
 	@Override
 	public MountainHouseBean select(int mountainhouseid) {
-		return null;
+		return mDao.select(mountainhouseid);
 	}
 
 	@Override
 	public List<MountainHouseBean> selectAll() {
-		return null;
+		return mDao.selectAll();
 	}
 
 	@Override
 	public List<MountainHouseBean> selectmountainname(String mountainname) {
-		// TODO Auto-generated method stub
-		return null;
+		return mDao.selectmountainname(mountainname);
 	}
 
 	@Override
 	public List<MountainHouseBean> selectmountainhousename(String mountainhousename) {
-		// TODO Auto-generated method stub
-		return null;
+		return mDao.selectmountainhousename(mountainhousename);
 	}
 
 	@Override
 	public MountainHouseBean inserMountainHouse(MountainHouseBean bean) {
-		// TODO Auto-generated method stub
-		return null;
+		return mDao.inserMountainHouse(bean);
 	}
 
 	@Override
 	public MountainHouseBean updatemountainhouse(MountainHouseBean bean) {
-		// TODO Auto-generated method stub
-		return null;
+		return mDao.updatemountainhouse(bean);
 	}
 
 	@Override
 	public MountainHouseBean deletemountainhouse(MountainHouseBean bean) {
-		// TODO Auto-generated method stub
-		return null;
+		return mDao.deletemountainhouse(bean);
 	}
 
 }
