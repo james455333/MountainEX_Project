@@ -15,9 +15,10 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 <importedID>A0825093-5536-D57B-D75E-F3914C3D0343</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<domain>C2FB5CED-A8C3-501A-6503-121A1C8F4C0E</domain>
+<dataTypePrecision>7</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -74,6 +75,17 @@
 <logicalDatatype>LOGDT029</logicalDatatype>
 <domain>57AAEB89-ADE1-5295-799E-308DE467A9B3</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stock" id="A4E2B5E6-8161-4F26-933E-04E80E56E3FD">
+<createdBy>Student</createdBy>
+<createdTime>2020-10-28 10:29:54 UTC</createdTime>
+<ownerDesignName>all</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

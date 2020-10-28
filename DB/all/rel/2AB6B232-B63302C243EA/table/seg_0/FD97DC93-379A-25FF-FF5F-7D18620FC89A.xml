@@ -18,8 +18,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <identityColumn>true</identityColumn>
 <autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
@@ -43,18 +43,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="sotck" id="B69E0EAB-CBB7-D4B1-14FB-3C8A879CEF26">
-<sourceDDLFile>all.ddl</sourceDDLFile>
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-<importedID>43E5896E-286F-492D-DEDA-2B033334E8B9</importedID>
-<use>0</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<domain>57B577AF-1919-EE54-9C07-01B34C5E5B7A</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="second_class_id" id="A3BFAB5E-C014-72B8-7ECD-6B22F9AC3097">
 <sourceDDLFile>all.ddl</sourceDDLFile>
 <createdBy>Student</createdBy>
@@ -65,26 +53,10 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>4</dataTypePrecision>
-<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="320A2297-0C69-77C1-9B9B-C73C1B749802" referredColumn="E9130D2D-3D31-AE0B-7BDC-7855A711C2AA"/>
-</associations>
-</Column>
-<Column name="first_class_id" id="BB183EAD-8C94-C0BC-AFD7-6F5D139E407F">
-<sourceDDLFile>all.ddl</sourceDDLFile>
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-<importedID>03644821-EF93-BD00-89AE-B27CE9A389B1</importedID>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>3</dataTypePrecision>
-<ownDataTypeParameters>,3,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="E334BDD2-F085-6413-34BE-3F09FCD5AA58" referredColumn="63CB4A74-A51F-28F9-C1DF-2993CCA67643"/>
 </associations>
 </Column>
 </columns>
@@ -100,28 +72,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="672D231D-7DA5-870C-2C3C-1A10F0457B08"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="C771DBCF-9FD5-F5AF-FC29-26484C91A5E1" name="itembasic__idxv1">
-<sourceDDLFile>all.ddl</sourceDDLFile>
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-<importedID>6235A7FD-CBE0-48E4-6051-5E2EE486054B</importedID>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="672D231D-7DA5-870C-2C3C-1A10F0457B08"/>
-<colUsage columnID="B69E0EAB-CBB7-D4B1-14FB-3C8A879CEF26"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="94DA94AA-D767-993C-1F97-D2C29C7BCDF2" name="itembasic_first_class_fk">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:06 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="BB183EAD-8C94-C0BC-AFD7-6F5D139E407F"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="6CECBFC6-CA89-9E57-1220-E688FA358C92" name="itembasic_second_class_fk">

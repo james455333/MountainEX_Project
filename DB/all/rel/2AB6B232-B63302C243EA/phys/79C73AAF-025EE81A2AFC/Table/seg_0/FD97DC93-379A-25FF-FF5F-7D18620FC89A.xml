@@ -25,31 +25,9 @@
 <createdTime>2020-10-23 13:41:05 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
 </ColumnProxy>
-<ColumnProxy name="sotck" id="B69E0EAB-CBB7-D4B1-14FB-3C8A879CEF26">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-</ColumnProxy>
-<ColumnProxy name="first_class_id" id="BB183EAD-8C94-C0BC-AFD7-6F5D139E407F">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-</ColumnProxy>
 </columnProxies>
-<indexProxies>
-<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="itembasic__idxv1" id="C771DBCF-9FD5-F5AF-FC29-26484C91A5E1">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:05 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-</IndexProxy>
-</indexProxies>
 <foreignKeys>
 <ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="itembasic_second_class_fk" id="6CECBFC6-CA89-9E57-1220-E688FA358C92">
-<createdBy>Student</createdBy>
-<createdTime>2020-10-23 13:41:06 UTC</createdTime>
-<ownerDesignName>all</ownerDesignName>
-</ForeignKey>
-<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="itembasic_first_class_fk" id="94DA94AA-D767-993C-1F97-D2C29C7BCDF2">
 <createdBy>Student</createdBy>
 <createdTime>2020-10-23 13:41:06 UTC</createdTime>
 <ownerDesignName>all</ownerDesignName>
